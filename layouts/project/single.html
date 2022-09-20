@@ -1,0 +1,33 @@
+{{ define "main" }}
+<section id="words">
+  <header class="layout--constrained py-32 lg:py-64">
+    <h1 class="text-display">
+      <span class="text-loContrast">{{.Params.client}}</span>
+      <br>
+      <span>{{.Title}}</span>
+    </h1>
+  </header>
+  <div class="layout--constrained">
+    <div class="prose">
+      {{ .Content }}
+    </div>
+  </div>
+</section>
+<section id="gallery" class="py-32 space-y-32">
+  {{ range $idx, $img := .Params.gallery }}
+  <figure>
+    <div class="bg-surface-1">  
+      {{ partial "project/image" $img }}
+    </div>
+    <figcaption class="layout--split pt-6">
+    <div class="text-meta">
+      [fig {{ printf "%02d" (add $idx 1) }}]
+    </div>
+    {{ with $img.caption }}
+      <div class="prose text-left">{{ . | markdownify }}</div>
+    {{ end }}
+    </figcaption>
+  </figure>
+  {{ end }}
+</section>
+{{ end }}

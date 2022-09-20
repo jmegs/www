@@ -1,0 +1,47 @@
+{{ define "main" }}
+<section class="layout--constrained py-32 lg:pt-64 lg:pb-40">
+	<h1 class="sr-only">John Meguerian</h1>
+	<p class="text-display">
+		Concept to code <br>
+		Product design lead.
+	</p>
+</section>
+
+<section id="bio" class="layout--constrained">
+	{{ $bio := .Site.GetPage "bio" }}
+	<h2 class="sr-only">{{ $bio.Title }}</h2>
+	<div class="prose">{{ $bio.Content }}</div>
+</section>
+
+<section id="projects" class="layout--constrained pt-16 lg:pt-24">
+	<h2 class="text-meta text-loContrast pb-8">Select Work</h2>
+	{{ $projects := where .Site.RegularPages "Section" "project" }}
+	{{ $sides := .Site.Data.sideprojects }}
+	<ul>
+		{{ range $projects }}
+		{{ partial "listitem" (dict "href" .RelPermalink "pre" .Title "post" .Params.client ) }}
+		{{ end }}
+		{{ range $sides }}
+		{{ partial "listitem" (dict "href" .URL "pre" .Title "post" "Side Project" ) }}
+		{{ end }}
+	</ul>
+</section>
+
+<section id="speaking" class="layout--constrained pt-16 lg:pt-24">
+	<h2 class="text-meta text-loContrast pb-8">Speaking</h2>
+	{{ $talks := .Site.Data.speaking }}
+	<ul>
+		{{ range $talks }}
+		{{ partial "listitem" (dict "href" .URL "pre" .Title "post" .Conf ) }}
+		{{ end }}
+	</ul>
+</section>
+
+{{/*  <section id="clients"></section>  */}}
+
+<section id="colo" class="layout--constrained pt-16 lg:pt-24">
+	{{ $colo := .Site.GetPage "colophon" }}
+	<h2 class="text-meta text-loContrast pb-8">{{ $colo.Title }}</h2>
+	<div class="prose">{{ $colo.Content }}</div>
+</section>
+{{ end }}

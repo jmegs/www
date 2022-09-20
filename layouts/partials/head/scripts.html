@@ -1,0 +1,7 @@
+{{ $script := resources.Get "script/app.ts" }}
+{{ if hugo.IsProduction }}
+  {{ $script = $script | js.Build (dict "minify" true) | fingerprint | resources.PostProcess }}
+{{ else }}
+  {{ $script = $script | js.Build }}
+{{ end }}
+<script src="{{$script.RelPermalink}}" defer></script>

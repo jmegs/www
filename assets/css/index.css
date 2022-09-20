@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Berkeley Mono';
+    src: url('/fonts/BerkeleyMonoVariable-Regular.woff2') format('woff2 supports variations'),
+      url('/fonts/BerkeleyMonoVariable-Regular.woff2') format('woff2-variations');
+    font-weight: 100;
+  }
+
+  @font-face {
+    font-family: 'Humane';
+    src: url('/fonts/Humane-Medium.woff2') format('woff2'),
+      /* Modern Browsers */
+      url('/fonts/Humane-Medium.otf') format('opentype');
+    /* Safari, Android, iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+  }
+
+
+  :root {
+    --surface-0: 0 0% 5%;
+    --surface-1: 0 0% 8%;
+    --surface-2: 0 0% 11%;
+    --surface-3: 0 0% 19%;
+
+    --hiContrast: 0 0% 96%;
+    --loContrast: 0 0% 50%;
+
+    --accent: 19 100% 50%;
+  }
+
+  ::selection {
+    background-color: theme(colors.loContrast);
+    color: theme(colors.hiContrast);
+  }
+
+  body,
+  html {
+    height: 100%;
+  }
+
+  html {
+    background-color: theme(colors.surface.0);
+    color: theme(colors.hiContrast);
+  }
+}
+
+@layer utilities {
+  .text-display {
+    font-family: "Humane";
+    font-size: clamp(5.50rem, calc(4.84rem + 3.29vw), 8.00rem);
+    text-transform: uppercase;
+    line-height: 0.85;
+  }
+
+  .text-meta {
+    font-family: theme(fontFamily.mono);
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+  }
+
+  .layout--constrained {
+    @apply lg:grid lg:grid-cols-2;
+  }
+
+  .layout--constrained>* {
+    @apply lg:col-start-2;
+  }
+
+  .layout--split {
+    @apply grid grid-cols-2;
+  }
+
+  /* .layout--split> :last-child {
+    @apply text-right lg:text-left;
+  } */
+}
+
+@layer components {
+  .ListItem {
+    @apply flex py-4 justify-between;
+    @apply border-b border-surface-2;
+    @apply transition-colors ease-in-out;
+    @apply hover:border-surface-3;
+  }
+
+  img.lazy {
+    @apply transition-opacity duration-1000 ease-in-out;
+  }
+  
+  img.lazy:not(.loaded) {
+    @apply opacity-0;
+  }
+  
+  img.lazy:is(.loaded, .error) {
+    @apply opacity-100;
+  }
+}

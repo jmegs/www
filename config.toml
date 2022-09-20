@@ -1,0 +1,16 @@
+title = 'John Meguerian – Product Design Lead'
+baseURL = 'https://johnmeguerian.com/'
+languageCode = 'en-us'
+disableKinds = ["taxonomy", "term", "RSS"]
+
+# this lets hugo run stuff installed via asdf
+# because they are very anal about security
+[security.exec] 
+  osEnv = ['(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM)$', '^ASDF_DIR$', '^HOME$']
+
+# render inline html in markdown 
+[markup.goldmark.renderer]
+unsafe = "true"
+
+[params]
+description = "Concept to code product design leader based in NYC"

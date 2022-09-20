@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{ partial "head/seo" . }}
+  {{ partial "head/favicon" . }}
+  {{ partial "head/font" . }}
+  {{ partialCached "head/styles" . }}
+  {{ partialCached "head/scripts" . }}
+  {{ partial "head/analytics" .}}
+</head>
+
+<body class="mx-auto p-4 lg:p-8">
+  {{ partial "header" . }}
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "footer" . }}
+</body>
+
+</html>
