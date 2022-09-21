@@ -5,9 +5,24 @@ client: "Squarespace"
 weight: 2
 gallery:
   - src: "color-panels"
+    alt: "controls offering curated and generated color palettes"
+    caption: >
+      We developed a range of curated starting points and generative color tools 
+      to help users zero in on a brand identity regardless of skill level
   - src: "color-annotations"
+    alt: "a yaml spec and corresponding UI for website color themes"
+    caption: >
+      I wrote an initial spec to map the design intent of color theming
+      onto the existing Squarespace styling framework
   - src: "color-sections"
-  - src: "theme-tool"
+    alt: "a pale red color theme applied to a Squarespace website"
+    caption: >
+      The color tools generate a range of themes, which can be applied to individual page sections
+  - src: "color-theme-tool"
+    alt: "screenshot of an interactive tool to check color combinations for accessiblity"
+    caption: >
+      To assist designers in creating curated color palettes, I wrote this theme checking tool
+      that verifies themes generated from the color palette result in accessible color combinations
 ---
 
 To address user feedback requesting more creative flexibility, I worked with a small team to prototype a color theming system. We needed to balance Squarespace’s characteristic ease of use with tools to make more varied, expressive websites.

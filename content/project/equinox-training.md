@@ -1,5 +1,5 @@
 ---
-title: "Equinox Training"
+title: "Personal Training"
 date: 2022
 client: "Equinox"
 weight: 4
