@@ -1,7 +1,8 @@
-{{ $script := resources.Get "script/app.ts" }}
+{{ $script := resources.Get "js/app.ts" }}
+{{ $bundle := $script | js.Build (dict "minify" hugo.IsProduction) }}
+
 {{ if hugo.IsProduction }}
-  {{ $script = $script | js.Build (dict "minify" true) | fingerprint | resources.PostProcess }}
-{{ else }}
-  {{ $script = $script | js.Build }}
+  {{ $bundle = $bundle | fingerprint }}
 {{ end }}
-<script src="{{$script.RelPermalink}}" defer></script>
+
+<script src="{{$bundle.RelPermalink}}" defer></script>

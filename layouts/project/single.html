@@ -1,33 +1,26 @@
 {{ define "main" }}
-<section id="words">
-  <header class="layout--constrained py-32 lg:py-64">
-    <h1 class="text-display">
-      <span class="text-loContrast">{{.Params.client}}</span>
-      <br>
-      <span>{{.Title}}</span>
+  <header class="contain caps py-40">
+    <h1>
+        {{.Params.Title}} <br>
+        {{.Params.Client}}
     </h1>
   </header>
-  <div class="layout--constrained">
-    <div class="prose">
-      {{ .Content }}
-    </div>
-  </div>
-</section>
-<section id="gallery" class="py-32 space-y-32">
-  {{ range $idx, $img := .Params.gallery }}
-  <figure>
-    <div class="bg-surface-1">  
-      {{ partial "project/image" $img }}
-    </div>
-    <figcaption class="layout--split pt-6">
-    <div class="text-meta">
-      [fig {{ printf "%02d" (add $idx 1) }}]
-    </div>
-    {{ with $img.caption }}
-      <div class="prose text-left">{{ . | markdownify }}</div>
+  <section id="summary" class="prose contain">
+    {{.Content}}
+  </section>
+  <section id="gallery" class="py-28 space-y-28">
+    {{ range $idx, $item := .Params.gallery }}
+      <figure class="gallery-item">
+        {{ partial "imgf" $item }}
+        {{ with $item.caption }}
+          <figcaption class="contain pt-5">
+            <div class="flex flex-col md:flex-row gap-y-3 gap-x-12">
+              <em class="">fig {{printf "%02d" (add $idx 1)}} </em>
+              <div class="max-w-measure">{{. | markdownify  }}</div>
+            </div>
+          </figcaption>
+        {{ end }}
+      </figure>
     {{ end }}
-    </figcaption>
-  </figure>
-  {{ end }}
-</section>
+  </section>
 {{ end }}

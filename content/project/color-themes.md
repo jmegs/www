@@ -33,6 +33,4 @@ Once in production the resulting system resulted in:
 - Increased diversity & expressivness across user sites
 - Decreased maintenance burden & higher velocity for internal teams
 
-<p class="text-loContrast">
-Note: Shown here are the results of a spike of work around system definition, prototyping, and concept testing. The solution in-product today was implemented and continually iterated on by our Web Presence product teams.
-</p>
+_Note: Shown here are the results of a spike of work around system definition, prototyping, and concept testing. The solution in-product today was implemented and continually iterated on by our Web Presence product teams._

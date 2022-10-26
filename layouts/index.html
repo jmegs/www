@@ -1,47 +1,64 @@
 {{ define "main" }}
-<section class="layout--constrained py-32 lg:pt-64 lg:pb-40">
-	<h1 class="sr-only">John Meguerian</h1>
-	<p class="text-display">
-		Concept to code <br>
-		Product design lead.
-	</p>
+<header class="contain py-40 caps">
+	<h1>
+		John Meguerian <br>
+		Product Design Manager<span class="animate-pulse ml-1">_</span>
+	</h1>
+</header>
+
+<section id="bio" class="contain">
+	<h2 class="sr-only">About John</h2>
+	<div class="prose">
+		{{ .Content }}
+	</div>
 </section>
 
-<section id="bio" class="layout--constrained">
-	{{ $bio := .Site.GetPage "bio" }}
-	<h2 class="sr-only">{{ $bio.Title }}</h2>
-	<div class="prose">{{ $bio.Content }}</div>
-</section>
-
-<section id="projects" class="layout--constrained pt-16 lg:pt-24">
-	<h2 class="text-meta text-loContrast pb-8">Select Work</h2>
+<section id="work" class="contain py-28 space-y-10">
+	{{ $count := 1 }}
+	<h2 class="sr-only">Selected Work</h2>
 	{{ $projects := where .Site.RegularPages "Section" "project" }}
 	{{ $sides := .Site.Data.sideprojects }}
-	<ul>
-		{{ range $projects }}
-		{{ partial "listitem" (dict "href" .RelPermalink "pre" .Title "post" .Params.client ) }}
-		{{ end }}
-		{{ range $sides }}
-		{{ partial "listitem" (dict "href" .URL "pre" .Title "post" "Side Project" ) }}
-		{{ end }}
-	</ul>
+	<article id="design" class="link-group">
+		<h3 class="caps mb-3">Design</h3>
+		<ul role="list" class="space-y-3">
+			{{ range $projects }}
+				{{ partial "index-link" (dict "url" .RelPermalink "idx" $count "title" .Title)
+			}}
+			{{ $count = add $count 1 }}
+			{{ end }}
+		</ul>
+	</article>
+	<article id="develop" class="link-group">
+		<h3 class="caps mb-3">Develop</h3>
+		<ul role="list" class="space-y-3">
+			{{ range $sides }}
+			{{ partial "index-link" (dict "url" .URL "idx" $count "title" .Title) }}
+			{{ $count = add $count 1 }}
+			{{ end }}
+		</ul>
+	</article>
+	<article id="speak" class="link-group">
+		<h3 class="caps mb-3">Speak</h3>
+		<ul role="list" class="space-y-3">
+			{{range .Site.Data.speaking }}
+				{{ $opts := dict "url" .URL "idx" $count "title" (printf "%s %s" .Conf .Year) }}
+				{{ partial "index-link" $opts }}
+			{{ $count = add $count 1 }}
+			{{ end }}
+		</ul>
+	</article>
+	<article id="more" class="link-group">
+		<h3 class="caps mb-3">More</h3>
+		<ul role="list" class="space-y-3">
+			{{/*  TODO add /uses page
+			{{ partial "index-link" (dict "url" "/colophon" "idx" $count "title" "Uses") }}
+			{{ $count = add $count 1 }}  
+			*/}}
+			{{ range .Site.Data.social }}
+			{{ partial "index-link" (dict "url" .URL "idx" $count "title" .Title) }}
+			{{ $count = add $count 1 }}
+			{{ end }}
+		</ul>
+	</article>
 </section>
-
-<section id="speaking" class="layout--constrained pt-16 lg:pt-24">
-	<h2 class="text-meta text-loContrast pb-8">Speaking</h2>
-	{{ $talks := .Site.Data.speaking }}
-	<ul>
-		{{ range $talks }}
-		{{ partial "listitem" (dict "href" .URL "pre" .Title "post" .Conf ) }}
-		{{ end }}
-	</ul>
-</section>
-
-{{/*  <section id="clients"></section>  */}}
-
-<section id="colo" class="layout--constrained pt-16 lg:pt-24">
-	{{ $colo := .Site.GetPage "colophon" }}
-	<h2 class="text-meta text-loContrast pb-8">{{ $colo.Title }}</h2>
-	<div class="prose">{{ $colo.Content }}</div>
-</section>
-{{ end }}
+{{end}}

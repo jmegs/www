@@ -1,0 +1,16 @@
+{{ define "main" }}
+<article class="constrained">
+  <header class="">
+    <div class="with-backlink">
+      <a href="/">Index</a>
+      <span>/</span>
+      <h1>{{.Title}}</h1>
+    </div>
+    <p>{{.Date.Format "02 Jan 2006"}}</p>
+  </header>
+  
+  <div class="prose">
+    {{.Content}}
+  </div>
+</article>
+{{ end }}

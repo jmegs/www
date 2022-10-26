@@ -18,17 +18,16 @@ gallery:
   - src: interstitial
     alt: a prompt for users to select their site topic, helping them narrow down
       their template selection
-    caption: > 
+    caption: >
       A short quiz increased conversion by personalizing website template
       recommendations for new users, while helping the team segment incoming
       customers by intent and interest.
   - src: survey
     alt: a pop-up usability survey
-    caption: > 
+    caption: >
       A universal survey framework helped teams across the organization
       unlock the necessary data to make smart decisions about experiments and
       A/B tests.
-
 ---
 
 Founding designer of the Squarespace Trial Experience team, which had two missions: to help new Squarespace users get to value quickly, and help the Squarespace organization learn about the needs and pain points of their customers.
@@ -39,4 +38,3 @@ This iterative process values metrics and learning equally, but we have seen sig
 
 - Major increases in trial conversion rates
 - Millions of new customer data points unlocked for downstream teams
-

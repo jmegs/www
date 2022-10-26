@@ -1,7 +1,0 @@
-{{ $external := hasPrefix .href "http" }}
-<li class="listitem max-w-prose">
-  <a href="{{.href}}" class="ListItem">
-    <h3>{{.pre}}{{with $external}}&nbsp;↗{{end}}</h3>
-    <p class="flex-shrink-0 text-loContrast">{{.post}}</p>
-  </a>
-</li>

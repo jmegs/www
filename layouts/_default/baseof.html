@@ -8,16 +8,21 @@
   {{ partial "head/favicon" . }}
   {{ partial "head/font" . }}
   {{ partialCached "head/styles" . }}
-  {{ partialCached "head/scripts" . }}
   {{ partial "head/analytics" .}}
 </head>
 
-<body class="mx-auto p-4 lg:p-8">
-  {{ partial "header" . }}
+<body>
+  <div class="contain">
+    <a href="/" class="home-link">
+      {{ partial "icon" "component" }}
+    </a>
+  </div>
   <main>
     {{ block "main" . }}{{ end }}
   </main>
-  {{ partial "footer" . }}
+  <footer class="contain caps mt-auto">
+    <p>Don't Panic</p>
+  </footer>
 </body>
 
 </html>

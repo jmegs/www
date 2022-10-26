@@ -20,9 +20,10 @@
 {{ $fb := printf "%s/f_auto,q_1,w_10/%s/%s" $c $ns $src }}
 
 <img
-  class="lazy"
+  class="bg-surface1"
+  loading="lazy"
   alt="{{$alt}}"
-  data-srcset="{{$set}}"
+  srcset="{{$set}}"
   src="{{$fb}}"
   width="1920"
   height="1080"
