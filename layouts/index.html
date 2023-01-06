@@ -1,5 +1,5 @@
 {{ define "main" }}
-<header class="contain py-40 caps">
+<header class="contain py-60 caps">
 	<h1>
 		John Meguerian <br>
 		Product Design Manager<span class="animate-pulse ml-1">_</span>
@@ -13,7 +13,7 @@
 	</div>
 </section>
 
-<section id="work" class="contain py-28 space-y-10">
+<section id="work" class="contain py-28">
 	{{ $count := 1 }}
 	<h2 class="sr-only">Selected Work</h2>
 	{{ $projects := where .Site.RegularPages "Section" "project" }}
@@ -28,7 +28,7 @@
 			{{ end }}
 		</ul>
 	</article>
-	<article id="develop" class="link-group">
+	<article id="develop" class="link-group mt-16">
 		<h3 class="caps mb-3">Develop</h3>
 		<ul role="list" class="space-y-3">
 			{{ range $sides }}
@@ -37,7 +37,7 @@
 			{{ end }}
 		</ul>
 	</article>
-	<article id="speak" class="link-group">
+	<article id="speak" class="link-group mt-16">
 		<h3 class="caps mb-3">Speak</h3>
 		<ul role="list" class="space-y-3">
 			{{range .Site.Data.speaking }}
@@ -47,12 +47,12 @@
 			{{ end }}
 		</ul>
 	</article>
-	<article id="more" class="link-group">
+	<article id="more" class="link-group mt-16">
 		<h3 class="caps mb-3">More</h3>
 		<ul role="list" class="space-y-3">
 			{{/*  TODO add /uses page
 			{{ partial "index-link" (dict "url" "/colophon" "idx" $count "title" "Uses") }}
-			{{ $count = add $count 1 }}  
+			{{ $count = add $count 1 }}
 			*/}}
 			{{ range .Site.Data.social }}
 			{{ partial "index-link" (dict "url" .URL "idx" $count "title" .Title) }}
