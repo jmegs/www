@@ -1,8 +1,0 @@
-{{ $script := resources.Get "js/app.ts" }}
-{{ $bundle := $script | js.Build (dict "minify" hugo.IsProduction) }}
-
-{{ if hugo.IsProduction }}
-  {{ $bundle = $bundle | fingerprint }}
-{{ end }}
-
-<script src="{{$bundle.RelPermalink}}" defer></script>

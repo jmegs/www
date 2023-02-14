@@ -1,9 +1,0 @@
-{{ $external := hasPrefix .url "http"  }}
-<li>
-	<a href="{{.url}}" class="group flex gap-x-10">
-		<span>{{ printf "%02d" .idx }}</span>
-		<span class="underline transition-colors group-hover:text-text/60">
-			{{.title}}{{if $external}} ↗{{end}}
-		</span>
-	</a>
-</li>
