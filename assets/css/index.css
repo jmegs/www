@@ -3,138 +3,27 @@
 @tailwind utilities;
 
 @font-face {
-	font-family: "Berkeley Mono";
-	src: url("/fonts/BerkeleyMonoVariable-Regular.woff2") format("woff2 supports variations"),
-		url("/fonts/BerkeleyMonoVariable-Regular.woff2") format("woff2-variations");
-	font-weight: 100;
-}
-
-@font-face {
-	font-family: "Berkeley Mono";
-	src: url("/fonts/BerkeleyMonoVariable-Italic.woff2") format("woff2 supports variations"),
-		url("/fonts/BerkeleyMonoVariable-Italic.woff2") format("woff2-variations");
-	font-weight: 100;
-	font-style: italic;
-}
-
-:root {
-	--font: "Berkeley Mono", ui-monospace;
-	--font-size: 0.8125rem;
-	--cream: 33 24% 93%;
-	--charcoal: 0 0% 17%;
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--canvas: var(--charcoal);
-		--text: var(--cream);
-	}
-}
-
-@media (prefers-color-scheme: light) {
-	:root {
-		--canvas: var(--cream);
-		--text: var(--charcoal);
-	}
+	font-family: "GTL-001";
+	src: url("/fonts/GTL001.woff2") format("woff2")
 }
 
 html {
 	height: 100%;
-	
-	font-family: var(--font);
-	font-size: var(--font-size);
-	line-height: 1.5;
-	
-	color: hsl(var(--text));
-	background-color: hsl(var(--canvas));
 }
 
 body {
 	min-height: 100vh;
 	min-height: 100dvh;
 
-	padding-block-start: theme(space.16);
-	padding-block-end: theme(space.12);
+	padding-block-start: theme(space.8);
 
 	display: grid;
 	grid-template-rows: auto 1fr auto;
 }
 
 @layer utilities {
-	.caps {
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-	}
-
-	.contain {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(20rem, 6fr) minmax(0, 2fr);
-	}
-
-	.contain> :where(*) {
-		grid-column: 2;
-	}
-
-	.prose {
-		line-height: 1.8;
-	}
-
-	.prose > * {
-		max-inline-size: theme(maxWidth[measure]);
-	}
-
-	.prose > * + * {
-		margin-top: 1.5em;
-	}
-
-	.prose :is(li, ul) {
-		list-style-position: inside;
-	}
-
-	.prose img {
-		border-radius: var(--radius);
-	}
-
-	.prose a {
-		text-decoration: underline;
-	}
-}
-
-@layer components {
-	.home-link {
-		position: relative;
-		width: fit-content;
-		padding: theme(spacing.3);
-		transform: translateX(calc(theme(spacing.3) * -1));
-	}
-
-	.home-link::after {
-		content: '';
-		display: block;
-		position: absolute;
-		inset: 0;
-		height: 100%;
-		width: 100%;
-		background-color: theme(colors[surface1]);
-		border-radius: 50%;
-		z-index: -1;
-		
-		transition: opacity 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-		opacity: 0;
-	}
-
-	.home-link svg {
-		transition: transform 500ms ease;
-		will-change: transform;
-	}
-
-	.home-link:hover svg {
-		transition: transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-		transform: rotate(180deg);
-	}
-
-	.home-link:hover::after {
-		opacity: 1;
+	.pad-x {
+		@apply px-4 md:px-10;
 	}
 
 	img.lazy {
@@ -147,5 +36,10 @@ body {
 
 	img.lazy:is(.loaded, .error) {
 		opacity: 1;
+	}
+
+	.fitty {
+		display: inline-block;
+		white-space: nowrap;
 	}
 }

@@ -1,26 +1,24 @@
+{{ define "header"}}
+<h1 class="text-6xl pb-64">{{.Title}}</h1>
+{{ end }}
 {{ define "main" }}
-  <header class="contain caps py-60">
-    <h1>
-        {{.Params.Title}} <br>
-        {{.Params.Client}}
-    </h1>
-  </header>
-  <section id="summary" class="prose contain">
-    {{.Content}}
-  </section>
-  <section id="gallery" class="py-28 space-y-28">
-    {{ range $idx, $item := .Params.gallery }}
-      <figure class="gallery-item">
-        {{ partial "imgf" $item }}
-        {{ with $item.caption }}
-          <figcaption class="contain pt-5">
-            <div class="flex flex-col md:flex-row gap-y-3 gap-x-12">
-              <em class="">fig {{printf "%02d" (add $idx 1)}} </em>
-              <div class="max-w-measure">{{. | markdownify  }}</div>
-            </div>
-          </figcaption>
-        {{ end }}
-      </figure>
+
+<section id="summary" class="prose dark:prose-invert pad-x">
+  {{.Content}}
+</section>
+<section id="gallery" class="py-28 space-y-28 pad-x">
+  {{ range $idx, $item := .Params.gallery }}
+  <figure class="gallery-item">
+    {{ partial "imgf" $item }}
+    {{ with $item.caption }}
+    <figcaption class="contain pt-6">
+      <div class="flex flex-col md:flex-row gap-y-3 gap-x-12">
+        <em class="">fig {{printf "%02d" (add $idx 1)}} </em>
+        <div class="max-w-measure">{{. | markdownify }}</div>
+      </div>
+    </figcaption>
     {{ end }}
-  </section>
+  </figure>
+  {{ end }}
+</section>
 {{ end }}

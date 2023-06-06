@@ -1,8 +1,6 @@
 ---
-title: Bio
-_build:
-  render: "never"
-  list: "local"
+title: Info
+layout: info
 ---
 
 Currently leading the design systems team at [Squarespace][1], John is a generalist design leader with expertise across the "full stack" of product design — from clarifying complex ecosystems and business needs to executing prototypes and production software in code.

@@ -1,64 +1,31 @@
+{{ define "header" }}
+<div class="prose dark:prose-invert pb-64">
+  {{.Content}}
+</div>
+{{ end }}
 {{ define "main" }}
-<header class="contain py-60 caps">
-	<h1>
-		John Meguerian <br>
-		Product Design Manager<span class="animate-pulse ml-1">_</span>
-	</h1>
-</header>
-
-<section id="bio" class="contain">
-	<h2 class="sr-only">About John</h2>
-	<div class="prose">
-		{{ .Content }}
-	</div>
-</section>
-
-<section id="work" class="contain py-28">
-	{{ $count := 1 }}
-	<h2 class="sr-only">Selected Work</h2>
-	{{ $projects := where .Site.RegularPages "Section" "project" }}
-	{{ $sides := .Site.Data.sideprojects }}
-	<article id="design" class="link-group">
-		<h3 class="caps mb-3">Design</h3>
-		<ul role="list" class="space-y-3">
-			{{ range $projects }}
-				{{ partial "index-link" (dict "url" .RelPermalink "idx" $count "title" .Title)
-			}}
-			{{ $count = add $count 1 }}
-			{{ end }}
-		</ul>
-	</article>
-	<article id="develop" class="link-group mt-16">
-		<h3 class="caps mb-3">Develop</h3>
-		<ul role="list" class="space-y-3">
-			{{ range $sides }}
-			{{ partial "index-link" (dict "url" .URL "idx" $count "title" .Title) }}
-			{{ $count = add $count 1 }}
-			{{ end }}
-		</ul>
-	</article>
-	<article id="speak" class="link-group mt-16">
-		<h3 class="caps mb-3">Speak</h3>
-		<ul role="list" class="space-y-3">
-			{{range .Site.Data.speaking }}
-				{{ $opts := dict "url" .URL "idx" $count "title" (printf "%s %s" .Conf .Year) }}
-				{{ partial "index-link" $opts }}
-			{{ $count = add $count 1 }}
-			{{ end }}
-		</ul>
-	</article>
-	<article id="more" class="link-group mt-16">
-		<h3 class="caps mb-3">More</h3>
-		<ul role="list" class="space-y-3">
-			{{/*  TODO add /uses page
-			{{ partial "index-link" (dict "url" "/colophon" "idx" $count "title" "Uses") }}
-			{{ $count = add $count 1 }}
-			*/}}
-			{{ range .Site.Data.social }}
-			{{ partial "index-link" (dict "url" .URL "idx" $count "title" .Title) }}
-			{{ $count = add $count 1 }}
-			{{ end }}
-		</ul>
-	</article>
-</section>
+<div class="pad-x mt-auto">
+  {{ range where .Site.RegularPages "Section" "project" }}
+  <a href="{{.RelPermalink}}">
+    <div class="flex items-baseline border-b dark:border-b-neutral-700 py-4">
+      <div class="flex gap-x-2 items-baseline">
+        <h3 class="font-light text-xl">{{.Title}}</h3>
+        <span class="text-sm text-neutral-500">{{.Params.client}}</span>
+      </div>
+      <span class="ml-auto">View (↓)</span>
+    </div>
+  </a>
+  {{ end }}
+  {{ range .Site.Data.sideprojects }}
+  <a href="{{.URL}}">
+    <div class="flex items-baseline border-b dark:border-b-neutral-700 py-4">
+      <div class="flex gap-x-2 items-baseline">
+        <h3 class="font-light text-xl">{{.Title}}</h3>
+        <span class="text-sm text-neutral-500">{{.Description}}</span>
+      </div>
+      <span class="ml-auto">Visit (↗)</span>
+    </div>
+  </a>
+  {{ end }}
+</div>
 {{end}}

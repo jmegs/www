@@ -8,21 +8,21 @@
   {{ partial "head/favicon" . }}
   {{ partial "head/font" . }}
   {{ partialCached "head/styles" . }}
+  {{ partialCached "head/scripts" . }}
   {{ partial "head/analytics" .}}
 </head>
 
-<body>
-  <div class="contain">
-    <a href="/" class="home-link" aria-label="Go Home">
-      {{ partial "icon" "component" }}
-    </a>
+<body class="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-50">
+  {{ partial "navbar" . }}
+  <div class="pt-4">
+    {{ block "header" . }}{{ end }}
   </div>
-  <main>
+  </header>
+  <main class="h-full flex flex-col">
     {{ block "main" . }}{{ end }}
   </main>
-  <footer class="contain caps mt-auto">
-    <p>Don't Panic</p>
+  <footer class="font-[GTL-001] text-center overflow-hidden select-none cursor-default pb-1 dark:text-neutral-500">
+    <p class="text-[13.5vw] leading-none">John Meguerian</p>
   </footer>
 </body>
-
 </html>

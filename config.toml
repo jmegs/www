@@ -3,6 +3,7 @@ baseURL = 'https://johnmeguerian.com/'
 languageCode = 'en-us'
 disableKinds = ["taxonomy", "term", "RSS"]
 ignoreErrors = ["error-disable-taxonomy"]
+enableGitInfo = true
 
 # allows hugo to access binaries installed with the ASDF version manager
 # if this isn't set, hugo can't run node packages like postcss
