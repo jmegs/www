@@ -26,7 +26,11 @@
         {{ with os.Getenv "VERCEL_GIT_COMMIT_SHA" }}
           {{ substr . 0 7 }}
         {{ else }}
-          {{ .GitInfo.AbbreviatedHash }}
+          {{- if $.GitInfo -}}
+            {{ .GitInfo.AbbreviatedHash }}
+            {{- else -}}
+            NO GIT
+          {{- end -}}
         {{ end }}
       </span>
     </div>
