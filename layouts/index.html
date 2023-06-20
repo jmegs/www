@@ -1,6 +1,13 @@
 {{ define "header" }}
 <div class="prose dark:prose-invert pb-64">
   {{.Content}}
+  {{/*  Remove this after Config!  */}}
+  <div class="not-prose font-semibold flex items-center">
+    <span class="">Currently at</span>
+    <video loop="" autoplay="" playsinline="" class="h-[1em] mt-[3px] ml-1">
+      <source src="/config-logo-animation.mov" type="video/mp4;codecs=hvc1">
+    </video>
+  </div>
 </div>
 {{ end }}
 {{ define "main" }}
