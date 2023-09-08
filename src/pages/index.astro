@@ -1,5 +1,18 @@
 ---
-import Blob from "@components/blob.astro"
+import Blob from "@components/blob.astro";
+
+import { getEntry } from "astro:content";
+
+const currentBio = await getEntry("bio", "current");
+const pastBio = await getEntry("bio", "past");
+const { Content: CurrentBioContent } = await currentBio.render();
+const { Content: PastBioContent } = await pastBio.render();
+
+const links = [
+	["Github", "https://github.com/jmegs"],
+	["Instagram", "https://instagram.com/jmegs_"],
+	["Linkedin", "https://linkedin.com/in/johnmeguerian"],
+];
 ---
 
 <html lang="en">
@@ -12,5 +25,17 @@ import Blob from "@components/blob.astro"
 	</head>
 	<body>
 		<h1>Astro</h1>
-			</body>
+		<CurrentBioContent />
+		<PastBioContent />
+		<ul>
+			{
+				links.map(([label, url]) => (
+					<li>
+						<a href="{url}">{label}</a>
+					</li>
+				))
+			}
+		</ul>
+		<Blob />
+	</body>
 </html>
