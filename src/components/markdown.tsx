@@ -1,8 +1,13 @@
-import {getMDXComponent} from "next-contentlayer/hooks"
+import { getMDXComponent } from "next-contentlayer/hooks"
+import cx from "clsx"
 
 type Props = {
   code: string | undefined
   name: string
+}
+
+const components = {
+  a: A
 }
 
 export default function Markdown({ code, name }: Props) {
@@ -11,5 +16,11 @@ export default function Markdown({ code, name }: Props) {
     return null
   }
   const MDXContent = getMDXComponent(code)
-  return <MDXContent />
+  return <MDXContent components={components }/>
+}
+
+function A(props: React.HTMLProps<HTMLAnchorElement>) {
+  return (
+    <a className={cx(props.className, "underline hover:opacity-90 transition-opacity")} {...props} />
+  )
 }
