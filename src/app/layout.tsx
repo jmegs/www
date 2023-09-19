@@ -1,7 +1,18 @@
 import './globals.css'
 import './blob.css'
+
+import localFont from 'next/font/local'
+
 import type { Metadata } from 'next'
+
 import Blob from '@/components/blob'
+import Navbar from '@/components/navbar'
+
+const berkeley = localFont({
+  src: '../assets/BerkeleyMono-Regular.woff2',
+  display: 'swap',
+  variable: '--font-berkeley'
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -10,8 +21,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className={`${berkeley.variable}`}>
+      <body className='font-mono text-xs'>
+        <Navbar />
         {children}
         <Blob />
       </body>
