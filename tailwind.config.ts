@@ -7,12 +7,16 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {
+  
       fontFamily: {
         mono: ['var(--font-berkeley)'],
         display: ['var(--font-gtl)']
+      },
+      colors: {
+        canvas: 'hsl(var(--color-canvas) / <alpha-value>)',
+        wash: 'hsl(var(--color-wash) / <alpha-value>)',
+        foreground: 'hsl(var(--color-foreground) / <alpha-value>)',
       }
-    },
   },
   plugins: [],
 }
