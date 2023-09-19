@@ -4,7 +4,13 @@ export const Bio = defineDocumentType(() => ({
   name: 'Bio',
   filePathPattern: `bio/**/*.mdx`,
   contentType: 'mdx',
-  fields: {}
+  fields: {
+    slug: {
+      type: "string",
+      description: "The identifyer or URL segment of the content",
+      required: true,
+    },
+  }
 }))
 
 export default makeSource({
