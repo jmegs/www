@@ -9,7 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        mono: ['var(--font-berkeley)']
+        mono: ['var(--font-berkeley)'],
+        display: ['var(--font-gtl)']
       }
     },
   },
