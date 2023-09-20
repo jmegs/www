@@ -1,22 +1,22 @@
 import { getMDXComponent } from "next-contentlayer/hooks"
+import { type DocumentTypes } from "contentlayer/generated"
 import cx from "clsx"
 
 type Props = {
-  code: string | undefined
-  name: string
+  doc: DocumentTypes
 }
 
 const components = {
   a: A
 }
 
-export default function Markdown({ code, name }: Props) {
-  if (!code) {
-    console.warn(`markdown source for ${name} is undefined`)
+export default function Markdown({ doc }: Props) {
+  if (!doc.body.code) {
+    console.warn(`markdown source for ${doc._id} is undefined`)
     return null
   }
-  const MDXContent = getMDXComponent(code)
-  return <MDXContent components={components }/>
+  const MDXContent = getMDXComponent(doc.body.code)
+  return <MDXContent components={components} />
 }
 
 function A(props: React.HTMLProps<HTMLAnchorElement>) {
