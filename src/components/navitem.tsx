@@ -5,10 +5,12 @@ import {
   MinusIcon as DisabledIcon 
 } from "@radix-ui/react-icons"
 
+import { type ReactNode } from "react"
+
 type Props = {
-  label: string,
   isActive: boolean,
-  icon?: keyof typeof iconMap
+  icon?: keyof typeof iconMap,
+  children: ReactNode
 }
 
 const iconMap = {
@@ -17,7 +19,7 @@ const iconMap = {
   disabled: DisabledIcon
 } as const
 
-export default function NavItem({ label, isActive, icon }: Props) {
+export default function NavItem({ children, isActive, icon }: Props) {
   const renderIcon = () => {
     if (icon) {
       const Component = iconMap[icon]
@@ -32,7 +34,7 @@ export default function NavItem({ label, isActive, icon }: Props) {
   return (
     <div className="flex items-center gap-x-2">
       {renderIcon()}
-      <span className="uppercase text-[0.6875rem]">{label}</span>
+      <span className="uppercase text-[0.6875rem]">{children}</span>
     </div>
   )
 }
