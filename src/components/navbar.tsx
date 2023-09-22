@@ -10,7 +10,7 @@ export default function Navbar() {
   const sha = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA || "DEVMODE";
 
   return (
-    <div className="flex justify-between px-8 py-4">
+    <div className="flex justify-between px-4 md:px-8 py-4">
       <div className="flex gap-x-4">
         <Link href="/">
           <div className="flex items-center gap-x-2">
