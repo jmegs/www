@@ -5,7 +5,7 @@ import localFont from 'next/font/local'
 import type { Metadata } from 'next'
 
 import Blob from '@/components/blob'
-import Navbar from '@/components/nav/navbar'
+import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 
 const berkeley = localFont({
