@@ -7,6 +7,7 @@ import type { Metadata } from 'next'
 import Blob from '@/components/blob'
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
+import Fathom from '@/components/fathom'
 
 const berkeley = localFont({
   src: '../assets/BerkeleyMono-Regular.woff2',
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
         </div>
         <Blob />
+        <Fathom />
       </body>
     </html>
   )
