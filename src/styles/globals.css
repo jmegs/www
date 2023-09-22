@@ -13,10 +13,28 @@
   :root {
     --color-canvas: 0 0% 13%;
     --color-wash: 233 11% 15%;
-    --color-foreground: 232 9% 53%;
+    --color-foreground: 232 5% 57%;
   }
 }
 
 body {
   @apply text-foreground bg-canvas;
+  @apply selection:bg-foreground/60 selection:text-canvas
+}
+
+.TooltipContent {
+  transform-origin: var(--radix-tooltip-content-transform-origin);
+  animation: scaleIn 0.2s ease-out;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: translateX(-4%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

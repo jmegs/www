@@ -1,6 +1,7 @@
-import NavItem from "@/components/navitem";
+import NavItem from "@/components/nav/navitem";
 import Link from 'next/link'
 import Time from "@/components/time"
+import PortfolioComingSoon from "@/components/nav/index-tooltip"
 
 
 
@@ -13,7 +14,7 @@ export default function Navbar() {
         <Link href="/">
           <NavItem isActive={true}>Info</NavItem>
         </Link>
-        <NavItem icon="disabled" isActive={false}>Index</NavItem>
+        <PortfolioComingSoon />
       </div>
       <div className="flex gap-x-4">
         <NavItem icon="commit" isActive={false}>{sha.slice(0, 7)}</NavItem>
