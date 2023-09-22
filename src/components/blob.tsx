@@ -1,3 +1,5 @@
+import "@/styles/blob.css"
+
 export default function Blob() {
   return (
     <div className="blob">

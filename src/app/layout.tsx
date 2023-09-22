@@ -1,5 +1,4 @@
-import './globals.css'
-import './blob.css'
+import '@/styles/globals.css'
 
 import localFont from 'next/font/local'
 
