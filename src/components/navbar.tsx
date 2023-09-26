@@ -24,7 +24,7 @@ export default function Navbar() {
         </div>
       </div>
       <div className="flex gap-x-4">
-        <div className="flex items-center gap-x-2">
+        <div className="hidden md:flex items-center gap-x-2">
           <Icon name="commit" />
           <span className="uppercase">{sha.slice(0, 7)}</span>
         </div>

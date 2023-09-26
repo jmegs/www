@@ -27,7 +27,7 @@ type Props = { children: ReactNode }
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en" className={`${berkeley.variable} ${gtl.variable}`}>
-      <body className="font-mono text-xs leading-normal">
+      <body className="font-mono text-sm md:text-xs leading-normal">
         {/* 
           Loads Fathom Analytics tracking code. 
           Does not render anything on the page. 
