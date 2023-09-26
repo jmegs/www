@@ -1,15 +1,23 @@
 .blob {
-  --blob-size: 36rem;
+  --blob-size: 40vmax;
   --x-speed: 25000ms;
   --y-speed: 30000ms;
   --spin-speed: 35000ms;
+  --blur: 66.7px;
 
   position: fixed;
   height: 100vh;
+  height: 100dvh;
   width: 100vw;
   inset: 0;
   z-index: -1;
   overflow: hidden;
+}
+
+@media(max-width: 768px) {
+  .blob {
+    --blur: 45px;
+  }
 }
 
 .x {
@@ -28,13 +36,10 @@
 .spin {
   position: relative;
   animation: spin var(--spin-speed) linear infinite;
-}
-
-.shape {
-  height: 100%;
-  width: 100%;
-  filter: blur(66.7px);
-  opacity: 20%;
+  height: var(--blob-size);
+  width: var(--blob-size);
+  filter: blur(var(--blur));
+  opacity: 15%;
 }
 
 @keyframes x {
