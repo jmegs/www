@@ -1,39 +1,44 @@
-import '@/styles/globals.css'
+import "@/styles/globals.css"
 
-import localFont from 'next/font/local'
+import localFont from "next/font/local"
 
-import type { Metadata } from 'next'
+import type { Metadata } from "next"
 
-import Blob from '@/components/blob'
-import Navbar from '@/components/navbar'
-import Footer from '@/components/footer'
-import Fathom from '@/components/fathom'
+import Blob from "@/components/blob"
+import Navbar from "@/components/navbar"
+import Footer from "@/components/footer"
+import Fathom from "@/components/fathom"
+import { ReactNode } from "react"
 
 const berkeley = localFont({
-  src: '../assets/BerkeleyMono-Regular.woff2',
-  display: 'swap',
-  variable: '--font-berkeley'
+  src: "../assets/BerkeleyMono-Regular.woff2",
+  display: "swap",
+  variable: "--font-berkeley",
 })
 
 const gtl = localFont({
-  src: '../assets/GTL001.woff2',
-  display: 'swap',
-  variable: '--font-gtl'
+  src: "../assets/GTL001.woff2",
+  display: "swap",
+  variable: "--font-gtl",
 })
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+type Props = { children: ReactNode }
+
+export default function RootLayout({ children }: Props) {
   return (
     <html lang="en" className={`${berkeley.variable} ${gtl.variable}`}>
-      <body className='font-mono text-xs leading-normal'>
-        <div className='flex flex-col min-h-screen'>
+      <body className="font-mono text-xs leading-normal">
+        {/* 
+          Loads Fathom Analytics tracking code. 
+          Does not render anything on the page. 
+        */}
+        <Fathom />
+        <div className="flex flex-col min-h-screen">
           <Navbar />
-          <main className='flex flex-grow'>
-            {children}
-          </main>
+          <main className="flex flex-grow">{children}</main>
           <Footer />
         </div>
         <Blob />
-        <Fathom />
       </body>
     </html>
   )
@@ -42,7 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 export function generateMetadata(): Metadata {
   return {
     title: {
-      default: 'John Meguerian',
+      default: "John Meguerian",
       template: `%s | John Meguerian`,
     },
     description: `Concept to code product design manager`,
@@ -55,6 +60,6 @@ export function generateMetadata(): Metadata {
     twitter: {
       card: "summary_large_image",
       site: "@jmegs",
-    }
+    },
   }
 }

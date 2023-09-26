@@ -16,6 +16,7 @@ function TrackPageView() {
     })
   }, [])
 
+  // Track page views
   useEffect(() => {
     if (!pathname) return
 

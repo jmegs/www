@@ -1,11 +1,11 @@
 type Props = {
-  name: keyof typeof icons;
-  className?: string;
-};
+  name: keyof typeof icons
+  className?: string
+}
 
 export default function Icon(props: Props) {
-  const { name, className } = props;
-  const inner = icons[name];
+  const { name, className } = props
+  const inner = icons[name]
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +16,7 @@ export default function Icon(props: Props) {
     >
       {inner}
     </svg>
-  );
+  )
 }
 
 const icons = {
@@ -56,4 +56,4 @@ const icons = {
       clipRule="evenodd"
     ></path>
   ),
-};
+}

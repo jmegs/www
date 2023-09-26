@@ -7,7 +7,7 @@ type Props = {
 }
 
 const components = {
-  a: A
+  a: A,
 }
 
 export default function Markdown({ doc }: Props) {
@@ -21,6 +21,12 @@ export default function Markdown({ doc }: Props) {
 
 function A(props: React.HTMLProps<HTMLAnchorElement>) {
   return (
-    <a className={cx(props.className, "underline hover:opacity-90 transition-opacity")} {...props} />
+    <a
+      className={cx(
+        props.className,
+        "underline hover:opacity-90 transition-opacity"
+      )}
+      {...props}
+    />
   )
 }

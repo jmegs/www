@@ -1,13 +1,13 @@
-"use client";
+"use client"
 
-import Icon from "@/components/icon";
-import Link from "next/link";
-import Time from "@/components/time";
-import { usePathname } from "next/navigation";
+import Icon from "@/components/icon"
+import Link from "next/link"
+import Time from "@/components/time"
+import { usePathname } from "next/navigation"
 
 export default function Navbar() {
-  const pathname = usePathname();
-  const sha = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA || "DEVMODE";
+  const pathname = usePathname()
+  const sha = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA || "DEVMODE"
 
   return (
     <div className="flex justify-between px-4 md:px-8 py-4">
@@ -34,5 +34,5 @@ export default function Navbar() {
         </div>
       </div>
     </div>
-  );
+  )
 }
