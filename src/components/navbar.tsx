@@ -20,7 +20,7 @@ export default function Navbar() {
         </Link>
         <div className="flex items-center gap-x-2 cursor-not-allowed opacity-60">
           <Icon name="not-allowed" />
-          <span className="uppercase">Info</span>
+          <span className="uppercase">Index</span>
         </div>
       </div>
       <div className="flex gap-x-4">
