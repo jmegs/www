@@ -1,0 +1,73 @@
+.blob {
+  --blob-size: 40vmax;
+  --x-speed: 25000ms;
+  --y-speed: 30000ms;
+  --spin-speed: 35000ms;
+  --blur: 66.7px;
+
+  position: fixed;
+  height: 100vh;
+  height: 100dvh;
+  width: 100vw;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+@media(max-width: 768px) {
+  .blob {
+    --blur: 45px;
+  }
+}
+
+.x {
+  width: var(--blob-size);
+  height: 100%;
+  animation: x var(--x-speed) linear infinite alternate;
+  transform-origin: center;
+}
+
+.y {
+  animation: y var(--y-speed) linear infinite alternate;
+  height: var(--blob-size);
+  width: 100%;
+}
+
+.spin {
+  position: relative;
+  animation: spin var(--spin-speed) linear infinite;
+  height: var(--blob-size);
+  width: var(--blob-size);
+  filter: blur(var(--blur));
+  opacity: 15%;
+}
+
+@keyframes x {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(calc(100vw - (var(--blob-size) / 2)), 0, 0);
+  }
+}
+
+@keyframes y {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, calc(100vh - (var(--blob-size) / 2)), 0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}
