@@ -1,0 +1,18 @@
+{
+  "name": "ventus",
+  "version": "0.1.0",
+  "description": "hugo and tailwind starter",
+  "author": "John Meguerian <johnmeguerian@gmail.com>",
+  "license": "ISC",
+  "scripts": {
+    "dev": "hugo server --disableFastRender",
+    "build": "hugo --gc --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^9.1.0",
+    "tailwindcss": "^3.1.3"
+  }
+}

@@ -1,0 +1,8 @@
+{{ $s := resources.Get "index.css" }}
+{{ $s = $s | resources.PostCSS }}
+{{ if hugo.IsProduction }}
+  {{ $s = $s | minify | fingerprint | resources.PostProcess }}
+{{ else }}
+  {{ $s = $s | resources.ExecuteAsTemplate (printf "index.dev.%v.css" now.UnixMilli) . }}
+{{ end }}
+<link href="{{ $s.RelPermalink }}" rel="stylesheet" />

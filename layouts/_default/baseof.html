@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ cond .IsHome .Site.Title (printf "%s-%s" .Title .Site.Title) }}</title>
+  {{ partialCached "css.html" . }}
+  <link rel="preload" href="/fonts/BerkeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/BerkeleyMono-Italic.woff2" as="font" type="font/woff2" crossorigin>
+  {{ block "head" . }}{{ end }}
+</head>
+
+<body class="font-mono text-sm text-primary/90 bg-background">
+  <div class="px-4 py-10">
+   
+    {{/* HEADER */}}
+    <div class="container mx-auto lg:flex">
+      <a href="/" class="lg:w-1/4">John Meguerian</a>
+      <div class="lg:flex lg:justify-between grow">
+        <div>
+          {{ block "header" . }}
+          <p>Concept to Code Design Leader</p>
+          <p>Design Platform @ <a class="underline" href="https://squarespace.com">Squarespace</a></p>
+          {{ end }}
+        </div>
+        <nav class="flex gap-8">
+          <a href="/" class="underline">Info</a>
+          <a class="text-black/60" title="Work in Progress">Index soon</a>
+        </nav>
+      </div>
+    </div>
+
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+    
+    {{ partial "blob" . }}
+  </div>
+</body>
+
+</html>
