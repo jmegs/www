@@ -1,0 +1,18 @@
+[
+	{
+		"title": "Design Architecture Program",
+		"client": "Squarespace",
+		"hero": { "src": "https://picsum.photos/seed/h/1920/1080", "alt": "foo" },
+		"description": "An online learning platform offering interactive courses, personalized learning paths, and gamification elements.",
+		"problem": "Traditional online learning platforms often lacked engagement and failed to cater to individual learning styles.",
+		"impact": "The platform's engaging design and personalized learning features led to a 40% increase in course completion rates.",
+		"lesson": "Incorporating gamification and tailored learning experiences can significantly improve user engagement and outcomes.",
+		"gallery": [
+			{ "src": "https://picsum.photos/seed/foo/1920/1080", "alt": "foo" },
+			{ "src": "https://picsum.photos/seed/bar/1920/1080", "alt": "foo" },
+			{ "src": "https://picsum.photos/seed/baz/1920/1080", "alt": "foo" },
+			{ "src": "https://picsum.photos/seed/quux/1920/1080", "alt": "foo" },
+			{ "src": "https://picsum.photos/seed/zip/1920/1080", "alt": "foo" }
+		]
+	}
+]
