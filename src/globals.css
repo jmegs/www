@@ -1,35 +1,33 @@
+:root {
+	--gray-1-hsl: 120 20% 99%;
+	--gray-2-hsl: 120 17% 98%;
+	--gray-3-hsl: 120 7% 94%;
+	--gray-4-hsl: 120 4% 91%;
+	--gray-5-hsl: 120 5% 88%;
+	--gray-6-hsl: 120 4% 85%;
+	--gray-7-hsl: 120 3% 81%;
+	--gray-8-hsl: 105 3% 73%;
+	--gray-9-hsl: 103 3% 54%;
+	--gray-10-hsl: 103 3% 50%;
+	--gray-11-hsl: 110 3% 38%;
+	--gray-12-hsl: 108 8% 12%;
+}
+
+:root.dark {
+	--gray-1-hsl: 90 6% 7%;
+	--gray-2-hsl: 90 4% 9%;
+	--gray-3-hsl: 90 3% 13%;
+	--gray-4-hsl: 100 4% 16%;
+	--gray-5-hsl: 100 3% 19%;
+	--gray-6-hsl: 90 4% 22%;
+	--gray-7-hsl: 96 4% 27%;
+	--gray-8-hsl: 111 4% 37%;
+	--gray-9-hsl: 108 5% 42%;
+	--gray-10-hsl: 107 4% 47%;
+	--gray-11-hsl: 105 5% 69%;
+	--gray-12-hsl: 120 6% 93%;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer base {
-	:root {
-		--gray-1-hsl: 120 20% 99%;
-		--gray-2-hsl: 120 17% 98%;
-		--gray-3-hsl: 120 7% 94%;
-		--gray-4-hsl: 120 4% 91%;
-		--gray-5-hsl: 120 5% 88%;
-		--gray-6-hsl: 120 4% 85%;
-		--gray-7-hsl: 120 3% 81%;
-		--gray-8-hsl: 105 3% 73%;
-		--gray-9-hsl: 103 3% 54%;
-		--gray-10-hsl: 103 3% 50%;
-		--gray-11-hsl: 110 3% 38%;
-		--gray-12-hsl: 108 8% 12%;
-	}
-
-	.dark {
-		--gray-1-hsl: 90 6% 7%;
-		--gray-2-hsl: 90 4% 9%;
-		--gray-3-hsl: 90 3% 13%;
-		--gray-4-hsl: 100 4% 16%;
-		--gray-5-hsl: 100 3% 19%;
-		--gray-6-hsl: 90 4% 22%;
-		--gray-7-hsl: 96 4% 27%;
-		--gray-8-hsl: 111 4% 37%;
-		--gray-9-hsl: 108 5% 42%;
-		--gray-10-hsl: 107 4% 47%;
-		--gray-11-hsl: 105 5% 69%;
-		--gray-12-hsl: 120 6% 93%;
-	}
-}
