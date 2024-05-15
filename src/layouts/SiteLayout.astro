@@ -2,7 +2,7 @@
 import "@/globals.css"
 ---
 
-<html lang="en">
+<html lang="en" class="h-full">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -10,7 +10,9 @@ import "@/globals.css"
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
-	<body class="text-gray-12 bg-gray-1">
-		<slot />
+	<body class="text-gray-12 bg-gray-1 min-h-full flex flex-col">
+		<main class="grow">
+			<slot />
+		</main>
 	</body>
 </html>
