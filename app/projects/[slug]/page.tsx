@@ -40,7 +40,7 @@ export async function generateStaticParams() {
 	const projectSlugs = await getAllProjectSlugs()
 
 	return projectSlugs.map((slug) => ({
-		slug,
+		slug
 	}))
 }
 
@@ -56,7 +56,7 @@ async function getAllProjectSlugs(): Promise<string[]> {
 
 async function fetchProjects(): Promise<Project[]> {
 	const file = await readFile(
-		join(process.cwd(), "app", "projects", "data.json"),
+		join(process.cwd(), "content", "projects.json"),
 		"utf-8"
 	)
 	return JSON.parse(file)

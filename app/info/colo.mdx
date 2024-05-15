@@ -1,0 +1,1 @@
+This site built with the (wildly unnecessary) Next.js framework. Typeset in Inter by Rasmus Anderson with Phosphor icons by Helena Zhang and Tobias Fried. It is hosted on Vercel and the source is available on Github.
