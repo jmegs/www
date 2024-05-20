@@ -1,8 +1,17 @@
+import defaultTheme from "tailwindcss/defaultTheme"
+
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 	theme: {
 		extend: {
+			fontFamily: {
+				sans: [
+					"Input Sans",
+					"Input Sans override",
+					...defaultTheme.fontFamily.sans
+				]
+			},
 			colors: {
 				gray: {
 					1: "hsl(var(--gray-1-hsl) / <alpha-value>)",
