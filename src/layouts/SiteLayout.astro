@@ -10,9 +10,16 @@ import "@/globals.css"
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
-	<body class="text-gray-12 bg-gray-1 min-h-full flex flex-col">
+	<body class="min-h-full flex flex-col">
 		<main class="grow">
 			<slot />
 		</main>
 	</body>
 </html>
+
+<style>
+	body {
+		@apply text-gray-12 bg-gray-1;
+		padding: max(16px, 2.5vmin);
+	}
+</style>
