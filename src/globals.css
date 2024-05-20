@@ -29,10 +29,10 @@
 }
 
 @font-face {
-	font-family: "Input Sans";
-	src: url("/fonts/InputSans-Regular.woff2") format("woff2");
+	font-family: "TASA Orbiter";
+	src: url("/fonts/TASAOrbiterVF.woff2") format("woff2");
 	font-style: normal;
-	font-weight: 400;
+	font-weight: 400 900;
 	font-display: swap;
 }
 

@@ -3,5 +3,17 @@ import SiteLayout from "@/layouts/SiteLayout.astro"
 ---
 
 <SiteLayout>
-	<h1>hello world</h1>
+	<header class="py-20">
+		<h1 class="sr-only">John Meguerian</h1>
+		<p class="max-w-sm">
+			<a href="/info">John Meguerian</a> is a full stack product design manager based
+			in Brooklyn.
+		</p>
+	</header>
 </SiteLayout>
+
+<style scoped>
+	header :global(a) {
+		@apply text-gray-11 underline hover:text-gray-12 transition-colors;
+	}
+</style>

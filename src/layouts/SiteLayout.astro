@@ -10,7 +10,7 @@ import "@/globals.css"
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
-	<body class="min-h-full flex flex-col">
+	<body class="min-h-full flex flex-col p-5 lg:p-20">
 		<main class="grow">
 			<slot />
 		</main>
@@ -20,6 +20,8 @@ import "@/globals.css"
 <style>
 	body {
 		@apply text-gray-12 bg-gray-1;
-		padding: max(16px, 2.5vmin);
+		font-variation-settings:
+			"opsz" 32,
+			"wght" 400;
 	}
 </style>

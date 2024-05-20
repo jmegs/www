@@ -7,8 +7,8 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: [
-					"Input Sans",
-					"Input Sans override",
+					"TASA Orbiter",
+					"TASA Orbiter override",
 					...defaultTheme.fontFamily.sans
 				]
 			},
