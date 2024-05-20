@@ -1,6 +1,6 @@
 ---
+import SiteHeader from "@/components/site-header.astro"
 import ThemeScript from "@/components/theme-script.astro"
-import ThemeToggle from "@/components/theme-toggle.astro"
 import "@/globals.css"
 ---
 
@@ -14,9 +14,7 @@ import "@/globals.css"
 		<ThemeScript />
 	</head>
 	<body class="min-h-full flex flex-col p-5 lg:p-20">
-		<header>
-			<ThemeToggle />
-		</header>
+		<SiteHeader />
 		<main class="grow">
 			<slot />
 		</main>
