@@ -1,4 +1,6 @@
 ---
+import ThemeScript from "@/components/theme-script.astro"
+import ThemeToggle from "@/components/theme-toggle.astro"
 import "@/globals.css"
 ---
 
@@ -9,19 +11,22 @@ import "@/globals.css"
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
+		<ThemeScript />
 	</head>
 	<body class="min-h-full flex flex-col p-5 lg:p-20">
+		<header>
+			<ThemeToggle />
+		</header>
 		<main class="grow">
 			<slot />
 		</main>
+		<style>
+			body {
+				@apply text-gray-12 bg-gray-1;
+				font-variation-settings:
+					"opsz" 32,
+					"wght" 400;
+			}
+		</style>
 	</body>
 </html>
-
-<style>
-	body {
-		@apply text-gray-12 bg-gray-1;
-		font-variation-settings:
-			"opsz" 32,
-			"wght" 400;
-	}
-</style>

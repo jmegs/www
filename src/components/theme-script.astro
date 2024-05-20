@@ -1,0 +1,26 @@
+<script is:inline>
+	console.log("the theme script is starting")
+	const getThemePreference = () => {
+		if (typeof localStorage !== "undefined") {
+			return localStorage.getItem("theme")
+		}
+		return null
+	}
+
+	const getResolvedTheme = () => {
+		const preference = getThemePreference()
+		if (preference) {
+			console.log("the user has a local storage preference: ", preference)
+			return preference
+		}
+
+		const systemPrefersDark = window.matchMedia(
+			"(prefers-color-scheme: dark)"
+		).matches
+		return systemPrefersDark ? "dark" : "light"
+	}
+
+	const theme = getResolvedTheme()
+	console.log("the theme script thinks the theme is: ", theme)
+	document.documentElement.classList.toggle("dark", theme === "dark")
+</script>
