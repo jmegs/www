@@ -39,3 +39,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.prose {
+	& > * + * {
+		margin-block-start: var(--prose-flow-space, 1.25em);
+	}
+
+	[class~="lead"] {
+		font-size: 1.25em;
+		color: hsl(var(--gray-11-hsl));
+	}
+
+	blockquote {
+		padding-inline-start: 1em;
+		font-size: 1.125em;
+		border-inline-start-color: hsl(var(--gray-4-hsl));
+		border-inline-start-width: 0.25rem;
+	}
+}

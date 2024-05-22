@@ -13,18 +13,17 @@ import "@/globals.css"
 		<title>Astro</title>
 		<ThemeScript />
 	</head>
-	<body class="min-h-full flex flex-col p-5 lg:p-20">
+	<body class="min-h-full flex flex-col p-5 lg:p-10">
 		<SiteHeader />
-		<main class="grow">
-			<slot />
-		</main>
-		<style>
-			body {
-				@apply text-gray-12 bg-gray-1;
-				font-variation-settings:
-					"opsz" 32,
-					"wght" 400;
-			}
-		</style>
+		<slot />
 	</body>
 </html>
+
+<style>
+	body {
+		@apply text-gray-12 bg-gray-1;
+		font-variation-settings:
+			"opsz" 32,
+			"wght" 400;
+	}
+</style>

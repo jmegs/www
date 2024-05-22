@@ -1,9 +1,59 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro"
+import { Image } from "@unpic/astro"
+import avatar from "@/assets/avatar.jpg"
+import { Content as Colophon } from "@/components/colo.md"
+import { Content as Bio } from "@/components/bio.md"
+import { Icon } from "astro-icon/components"
+
+const links = [
+	{
+		title: "Email",
+		icon: "ph:envelope-simple",
+		href: "mailto:johnmeguerian@gmail.com"
+	},
+	{ title: "Github", 
+		icon: "ph:github-logo", 
+		href: "https://github.com/jmegs" 
+	},
+	{
+		title: "Linkedin",
+		icon: "ph:linkedin-logo",
+		href: "https://linkedin.com/in/johnmeguerian"
+	}
+]
 ---
 
 <SiteLayout>
-	<header class="py-20">
-		<p>info</p>
-	</header>
+	<main class="grow flex flex-col justify-between">
+		<header class="py-20">
+			<Image
+				src={avatar}
+				alt="pic of John"
+				width={128}
+				height={128}
+				class="rounded-full"
+			/>
+		</header>
+		<section class="flex justify-between flex-wrap items-end mb-5">
+			<div class="prose max-w-prose">
+				<Bio />
+				<div class="text-gray-11">
+					<Colophon />
+				</div>
+			</div>
+			<ul class="shrink max-w-sm flex mt-6 lg:flex-col gap-4">
+				{
+					links.map(({ title, icon, href }) => (
+						<li class="group hover:text-gray-11">
+							<a href={href} class="flex gap-2">
+								<Icon name={icon} size={24} class="group-hover:rotate-2 group-hover:scale-[.98] transition-all"/>
+								<span>{title}</span>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</section>
+	</main>
 </SiteLayout>

@@ -4,12 +4,14 @@ import { Icon } from "astro-icon/components"
 
 <button id="theme-toggle" aria-label="Toggle theme">
 	<Icon
+		size={24}
 		name="ph:sun-horizon"
-		class="absolute h-6 w-6 rotate-0 scale-100 transition-all dark:-rotate-12 dark:scale-0"
+		class="h-6 w-6 rotate-0 scale-100 transition-all dark:-rotate-12 dark:scale-0"
 	/>
 	<Icon
+		size={24}
 		name="ph:moon-stars"
-		class="absolute h-6 w-6 rotate-12 scale-0 transition-all dark:rotate-0 dark:scale-100"
+		class="h-6 w-6 rotate-12 scale-0 transition-all dark:rotate-0 dark:scale-100"
 	/>
 </button>
 
@@ -35,3 +37,14 @@ import { Icon } from "astro-icon/components"
 
 	toggleButton?.addEventListener("click", handleToggleClick)
 </script>
+
+<style scoped>
+	button {
+		display: grid;
+		grid-template: 1 / 1 / 1 / 1;
+	}
+
+	[data-icon] {
+		grid-area: 1 / 1;
+	}
+</style>
