@@ -15,7 +15,7 @@ function toTitleCase(str: string) {
 	{
 		segments.length ? (
 			<div class="flex items-center gap-2">
-				<a href="/" class="hover:rotate-2 hover:scale-[.98] hover:text-gray-11 transition-all">
+				<a href="/" class="link-hover">
 					<Icon name="ph:folder-notch-open-light" class="h-6 w-6 -translate-y-px" />
 				</a>
 				<span>/</span>
@@ -24,3 +24,9 @@ function toTitleCase(str: string) {
 		) : null
 	}
 </div>
+
+<style>
+	.link-hover {
+		@apply hover:rotate-2 hover:scale-[.98] hover:text-gray-11 transition-all;
+	}
+</style>
