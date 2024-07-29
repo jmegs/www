@@ -1,0 +1,60 @@
+---
+import Texture from "../components/texture.astro"
+import Blob from "../components/blob.astro"
+import "../styles/base.css"
+import { Fathom } from "astro-fathom"
+const ogImageURL = new URL("/og-image.png", Astro.site)
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>John Meguerian</title>
+		<meta
+			name="description"
+			content="John Meguerian is a design manger based in New York City."
+		/>
+		<meta property="og:image" content={ogImageURL} />
+
+		<meta name="theme-color" content="#eeeeee" />
+		<meta
+			name="theme-color"
+			media="(prefers-color-scheme: dark)"
+			content="#282828"
+		/>
+		<Fathom site="TVQPDWBA" honorDnt={true} />
+	</head>
+	<body>
+		<slot />
+		<Texture />
+		<Blob />
+	</body>
+</html>
+
+<style is:global>
+	html {
+		height: 100%;
+	}
+
+	body {
+		font-family: "Berkeley Mono";
+		display: flex;
+		font-size: 13px;
+		color: hsl(0 0% 0% / 95%);
+		flex-direction: column;
+		min-height: 100dvh;
+		padding: 1.5rem;
+
+		@media (prefers-color-scheme: dark) {
+			color: hsl(0 0% 100% / 80%);
+			background-color: hsl(0 0% 0% / 95%);
+		}
+	}
+
+	::selection {
+		background-color: hsl(0 0% 0% / 80%);
+		color: hsl(0 0% 100%);
+	}
+</style>

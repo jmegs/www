@@ -1,18 +1,75 @@
 ---
-// Welcome to Astro! Everything between these triple-dash code fences
-// is your "component frontmatter". It never runs in the browser.
-console.log("This runs in your terminal, not the browser!")
+import CurrentCommit from "../components/current-commit.astro"
+import NycTime from "../components/nyc-time.astro"
+import Layout from "../layouts/layout.astro"
+import { Content as BioContent } from "../components/bio.md"
 ---
 
-<!-- Below is your "component template." It's just HTML, but with
-    some magic sprinkled in to help you build great templates. -->
-<html>
-	<body>
-		<h1>Hello, World!</h1>
-	</body>
-</html>
+<Layout>
+	<div class="container">
+		<h1 class="">john&nbsp;meguerian</h1>
+		<div class="meta flex justify-between pl-4 md:justify-end gap-4 uppercase">
+			<NycTime />
+			<CurrentCommit />
+		</div>
+		<div class="columns">
+			<BioContent />
+		</div>
+	</div>
+</Layout>
+
 <style>
+	.container {
+		display: grid;
+		grid-template-columns: min-content;
+		grid-template-rows: auto auto auto;
+		margin-inline: auto;
+		margin-block: auto;
+		max-width: min-content;
+		min-width: 320px;
+	}
+
 	h1 {
-		color: orange;
+		font-family: "Outward";
+		line-height: 1;
+		font-size: clamp(144px, 30vw, 480px);
+		display: inline-flex;
+		/* magic numbers until we have text-box-trim */
+		margin-right: -0.01em; /* trim trailing box */
+		line-height: 0.65; /* trim to sort of baseline */
+	}
+
+	.columns {
+		columns: 2;
+		column-gap: 4em;
+		line-height: 1.5;
+		margin-top: 5lh;
+		margin-bottom: 5lh;
+	}
+
+	.columns > :global(p:nth-child(3)) {
+		break-before: column;
+	}
+
+	.columns > :global(p + p:not(:nth-child(3))) {
+		margin-top: 1em;
+	}
+
+	.columns :global(a) {
+		text-decoration: underline;
+	}
+
+	@media (max-width: 1024px) {
+		.container {
+			padding-block-start: 5lh;
+		}
+
+		.columns {
+			columns: initial;
+		}
+
+		.columns > :global(p + p) {
+			margin-top: 1em;
+		}
 	}
 </style>
