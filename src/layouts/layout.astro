@@ -1,5 +1,4 @@
 ---
-import SiteHeader from "../components/site-header.astro"
 import Texture from "../components/texture.astro"
 import Blob from "../components/blob.astro"
 import "../styles/base.css"
@@ -10,7 +9,11 @@ import "../styles/base.css"
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Document</title>
+		<title>John Meguerian</title>
+		<meta
+			name="description"
+			content="John Meguerian is a design manger based in New York City."
+		/>
 	</head>
 	<body class="text-xs">
 		<slot />
@@ -19,7 +22,7 @@ import "../styles/base.css"
 	</body>
 </html>
 
-<style>
+<style is:global>
 	html {
 		height: 100%;
 	}
@@ -27,12 +30,14 @@ import "../styles/base.css"
 	body {
 		font-family: "Berkeley Mono";
 		display: flex;
+		color: hsl(0 0% 0% / 95%);
 		flex-direction: column;
 		min-height: 100dvh;
 		padding: 1.5rem;
 	}
 
-	main {
-		flex-grow: 1;
+	::selection {
+		background-color: hsl(0 0% 0% / 80%);
+		color: hsl(0 0% 100%);
 	}
 </style>
