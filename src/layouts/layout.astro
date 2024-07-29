@@ -14,8 +14,14 @@ import "../styles/base.css"
 			name="description"
 			content="John Meguerian is a design manger based in New York City."
 		/>
+		<meta name="theme-color" content="#eeeeee" />
+		<meta
+			name="theme-color"
+			media="(prefers-color-scheme: dark)"
+			content="#282828"
+		/>
 	</head>
-	<body class="text-xs">
+	<body>
 		<slot />
 		<Texture />
 		<Blob />
@@ -30,10 +36,16 @@ import "../styles/base.css"
 	body {
 		font-family: "Berkeley Mono";
 		display: flex;
+		font-size: 13px;
 		color: hsl(0 0% 0% / 95%);
 		flex-direction: column;
 		min-height: 100dvh;
 		padding: 1.5rem;
+
+		@media (prefers-color-scheme: dark) {
+			color: hsl(0 0% 100% / 80%);
+			background-color: hsl(0 0% 0% / 95%);
+		}
 	}
 
 	::selection {
