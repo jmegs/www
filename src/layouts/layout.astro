@@ -11,16 +11,25 @@ import "../styles/base.css"
 		<meta name="generator" content={Astro.generator} />
 		<title>Document</title>
 	</head>
-	<body>
-		<main class="mx-4 lg:mx-8">
-			<slot />
-		</main>
-		<Texture />
+	<body class="text-xs">
+		<slot />
 	</body>
 </html>
 
 <style>
+	html {
+		height: 100%;
+	}
+
 	body {
 		font-family: "Berkeley Mono";
+		display: flex;
+		flex-direction: column;
+		min-height: 100dvh;
+		padding: 1.5rem;
+	}
+
+	main {
+		flex-grow: 1;
 	}
 </style>

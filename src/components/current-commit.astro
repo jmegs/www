@@ -1,0 +1,9 @@
+---
+import { Icon } from "astro-icon/components"
+const commitHash = import.meta.env.COMMIT_HASH
+---
+
+<div class="flex gap-1 items-center">
+	<Icon name="ph:git-merge" size={16} />
+	<span id="commit">{commitHash}</span>
+</div>

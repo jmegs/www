@@ -1,8 +1,88 @@
 ---
-import SiteHeader from "../components/site-header.astro"
+import CurrentCommit from "../components/current-commit.astro"
+import NycTime from "../components/nyc-time.astro"
 import Layout from "../layouts/layout.astro"
 ---
 
 <Layout>
-	<SiteHeader />
+	<div class="container">
+		<h1 class="">john&nbsp;meguerian</h1>
+		<div class="meta flex justify-between pl-4 md:justify-end gap-4">
+			<NycTime />
+			<CurrentCommit />
+		</div>
+		<div class="columns">
+			<p>
+				Currently leading the design systems team at Squarespace, John is a
+				generalist design leader with expertise across the "full stack" of
+				product design — from clarifying complex ecosystems and business needs
+				to executing prototypes and production software in code.
+			</p>
+			<p>
+				His current focus at Squarespace is building tools and processes that
+				enable a coherent platform experience. In other words, the "instruction
+				manuals" to the classic design systems "lego bricks." He has also led
+				onboarding, education and cross-team collaboration to drive new user
+				success, and built new tools for brick & mortar business owners.
+			</p>
+			<p>
+				Previously John worked in Experience Strategy and Design at R/GA,
+				building products and tech-enabled consumer experiences for the world's
+				biggest brands.
+			</p>
+			<p>
+				When not drawing rectangles on screen, he’s a passionate home cook,
+				restaurant goer, and lover of fitness, science fiction, and hikes –
+				especially ones that end at a great place to eat.
+			</p>
+		</div>
+	</div>
 </Layout>
+
+<style>
+	.container {
+		display: grid;
+		grid-template-columns: min-content;
+		grid-template-rows: auto auto auto;
+		margin-top: 2rlh;
+		margin-inline: auto;
+		margin-block: auto;
+		max-width: min-content;
+		min-width: 320px;
+	}
+
+	h1 {
+		font-family: "Outward";
+		line-height: 1;
+		font-size: clamp(144px, 30vw, 480px);
+		display: inline-flex;
+		/* magic numbers until we have text-box-trim */
+		margin-right: -0.01em; /* trim trailing box */
+		line-height: 0.65; /* trim to sort of baseline */
+	}
+
+	.columns {
+		columns: 2;
+		column-gap: 2em;
+		line-height: 1.5;
+		margin-top: 5lh;
+	}
+
+	.columns > p:nth-child(3) {
+		break-before: column;
+	}
+
+	.columns > p + p:not(:nth-child(3)) {
+		margin-top: 1em;
+	}
+
+	@media (max-width: 1024px) {
+		.columns {
+			columns: initial;
+		}
+
+		.columns > p + p {
+			margin-top: 1em;
+		}
+	}
+</style>
