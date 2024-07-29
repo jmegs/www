@@ -1,0 +1,26 @@
+---
+import SiteHeader from "../components/site-header.astro"
+import Texture from "../components/texture.astro"
+import "../styles/base.css"
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Document</title>
+	</head>
+	<body>
+		<main class="mx-4 lg:mx-8">
+			<slot />
+		</main>
+		<Texture />
+	</body>
+</html>
+
+<style>
+	body {
+		font-family: "Berkeley Mono";
+	}
+</style>
