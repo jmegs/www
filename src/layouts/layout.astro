@@ -2,6 +2,7 @@
 import Texture from "../components/texture.astro"
 import Blob from "../components/blob.astro"
 import "../styles/base.css"
+const ogImageURL = new URL("/og-image.png", Astro.site)
 ---
 
 <html lang="en">
@@ -14,7 +15,7 @@ import "../styles/base.css"
 			name="description"
 			content="John Meguerian is a design manger based in New York City."
 		/>
-		<meta property="og:image" content="/og-image.png" />
+		<meta property="og:image" content={ogImageURL} />
 
 		<meta name="theme-color" content="#eeeeee" />
 		<meta
