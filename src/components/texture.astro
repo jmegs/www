@@ -17,16 +17,13 @@
 <style>
 	#texture {
 		position: fixed;
-		/* inset: 0; */
-		top: -10dvh;
-		left: 0;
-		right: 0;
-		bottom: 10dvh;
+		inset: 0;
+		z-index: 9999;
 		width: 100vw;
-		height: 120dvh;
-		opacity: 0.4;
+		min-height: 100vh;
+		opacity: 0.3;
 		pointer-events: none;
-		z-index: 1;
+		transform: translateY(0);
 		filter: contrast(64%) brightness(100%);
 	}
 </style>
