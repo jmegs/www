@@ -20,6 +20,7 @@
     "fontaine": "^0.5.0"
   },
   "prettier": {
-    "semi": false
+    "semi": false,
+    "useTabs": true
   }
 }
