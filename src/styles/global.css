@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-serif: var(--font-serif);
+}
+
+:root {
+  color-scheme: light dark;
+}
