@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-serif: var(--font-serif);
+  --font-serif: var(--font-bureau-serif);
 }
 
 :root {

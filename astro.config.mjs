@@ -10,13 +10,13 @@ export default defineConfig({
 		fonts: [
 			{
 				provider: "local",
-				name: "Mondwest",
-				cssVariable: "--font-serif",
+				name: "Bureau Serif",
+				cssVariable: "--font-bureau-serif",
 				variants: [
 					{
 						weight: 400,
 						style: "normal",
-						src: ["./src/assets/PPMondwest-Regular.woff2"],
+						src: ["./src/assets/STKBureauSerif-Book.woff2"],
 					},
 				],
 			},

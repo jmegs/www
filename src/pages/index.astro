@@ -13,16 +13,16 @@ import avatarImage from "../assets/profile-pic.jpg";
 		<meta name="generator" content={Astro.generator} />
 		<title>John Meguerian</title>
 		<meta name="description" content="Design Manager, Brooklyn, NY" />
-		<Font cssVariable="--font-serif" preload />
+		<Font cssVariable="--font-bureau-serif" preload />
 	</head>
-	<body class="antialiased font-serif selection:bg-amber-200">
+	<body class="antialiased font-serif text-[15px] selection:bg-amber-200">
 		<main
 			class="min-h-svh p-6 md:px-12 grid grid-rows-[auto_auto_auto_1fr] md:grid-rows-2 md:grid-cols-2 gap-y-1"
 		>
 			<Image
 				priority={true}
 				src={avatarImage}
-				alt="Profile Picture"
+				alt="John"
 				widths={[64, 128]}
 				loading="eager"
 				sizes="(max-width: 48rem) 56px, 64px"
