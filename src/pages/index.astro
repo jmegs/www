@@ -3,6 +3,7 @@ import { Font } from "astro:assets";
 import "../styles/global.css";
 import { Image } from "astro:assets";
 import avatarImage from "../assets/profile-pic.jpg";
+import Blob from "../components/blob.astro";
 ---
 
 <html lang="en">
@@ -15,7 +16,7 @@ import avatarImage from "../assets/profile-pic.jpg";
 		<meta name="description" content="Design Manager, Brooklyn, NY" />
 		<Font cssVariable="--font-bureau-serif" preload />
 	</head>
-	<body class="antialiased font-serif text-[15px] selection:bg-amber-200">
+	<body class="antialiased font-serif text-[15px]">
 		<main
 			class="min-h-svh p-6 md:px-12 grid grid-rows-[auto_auto_auto_1fr] md:grid-rows-2 md:grid-cols-2 gap-y-1"
 		>
@@ -26,7 +27,7 @@ import avatarImage from "../assets/profile-pic.jpg";
 				widths={[64, 128]}
 				loading="eager"
 				sizes="(max-width: 48rem) 56px, 64px"
-				class="size-14 md:size-16 object-cover rounded-full ring-neutral-100 dark:ring-neutral-800 ring-4 md:self-end mb-4 hover:rotate-3 transition-transform ease-spring duration-830"
+				class="size-14 md:size-16 object-cover rounded-full md:self-end mb-4 hover:rotate-3 transition-transform ease-spring duration-830"
 			/>
 			<h1 class="md:col-start-1 md:row-start-1 w-fit">John Meguerian</h1>
 			<p class="md:col-start-2 md:row-start-1 w-fit">Design Manager</p>
@@ -43,5 +44,13 @@ import avatarImage from "../assets/profile-pic.jpg";
 				<p>[ 40°70&apos;N,&nbsp;&nbsp;74°00&apos;W ]</p>
 			</div>
 		</main>
+		<Blob />
 	</body>
 </html>
+
+<style>
+	body {
+		background-color: var(--color-surface);
+		color: var(--color-tx);
+	}
+</style>

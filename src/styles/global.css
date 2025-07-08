@@ -1,9 +1,59 @@
 @import "tailwindcss";
 
-@theme inline {
-  --font-serif: var(--font-bureau-serif);
+:root {
+	--flexoki-black: #100f0f;
+	--flexoki-base-950: #1c1b1a;
+	--flexoki-base-900: #282726;
+	--flexoki-base-850: #343331;
+	--flexoki-base-800: #403e3c;
+	--flexoki-base-750: #4c4a48;
+	--flexoki-base-700: #575653;
+	--flexoki-base-600: #6f6e69;
+	--flexoki-base-500: #878580;
+	--flexoki-base-300: #b7b5ac;
+	--flexoki-base-200: #cecdc3;
+	--flexoki-base-150: #dad8ce;
+	--flexoki-base-100: #e6e4d9;
+	--flexoki-base-50: #f2f0e5;
+	--flexoki-paper: #fffcf0;
+
+	--flexoki-red: #af3029;
+	--flexoki-orange: #bc5215;
+	--flexoki-yellow: #ad8301;
+	--flexoki-green: #66800b;
+	--flexoki-cyan: #24837b;
+	--flexoki-blue: #205ea6;
+	--flexoki-purple: #5e409d;
+	--flexoki-magenta: #a02f6f;
+
+	--flexoki-color-surface: var(--flexoki-paper);
+	--flexoki-color-surface-2: var(--flexoki-base-50);
+	--flexoki-color-tx: var(--flexoki-black);
+	--flexoki-color-tx-2: var(--flexoki-base-600);
 }
 
-:root {
-  color-scheme: light dark;
+@media (prefers-color-scheme: dark) {
+	:root {
+		--flexoki-color-surface: var(--flexoki-black);
+		--flexoki-color-surface-2: var(--flexoki-base-950);
+		--flexoki-color-tx: var(--flexoki-base-200);
+		--flexoki-color-tx-2: var(--flexoki-base-500);
+
+		--flexoki-red: #d14d41;
+		--flexoki-orange: #da702c;
+		--flexoki-yellow: #d0a215;
+		--flexoki-green: #879a39;
+		--flexoki-cyan: #3aa99f;
+		--flexoki-blue: #4385be;
+		--flexoki-purple: #8b7ec8;
+		--flexoki-magenta: #ce5d97;
+	}
+}
+
+@theme inline {
+	--font-serif: var(--font-bureau-serif);
+	--color-surface: var(--flexoki-color-surface);
+	--color-surface-2: var(--flexoki-color-surface-2);
+	--color-tx: var(--flexoki-color-tx);
+	--color-tx-2: var(--flexoki-color-tx-2);
 }
