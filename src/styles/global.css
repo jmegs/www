@@ -51,7 +51,7 @@
 }
 
 @theme inline {
-	--font-serif: var(--font-bureau-serif);
+	--font-sans: var(--font-degular-variable);
 	--color-surface: var(--flexoki-color-surface);
 	--color-surface-2: var(--flexoki-color-surface-2);
 	--color-tx: var(--flexoki-color-tx);
