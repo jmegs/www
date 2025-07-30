@@ -65,11 +65,13 @@ import Blob from "../components/blob.astro";
 		color: var(--color-tx);
 		font-family: var(--font-degular-variable);
 		letter-spacing: -0.01em;
+		font-weight: 475;
+		font-size: 1.125rem;
 	}
 
 	main {
 		min-height: 100svh;
-		padding: 5vmin;
+		padding: 2vmin 3vmin;
 		display: grid;
 		grid-template-rows: auto auto auto 1fr;
 		row-gap: 0.25rem;
@@ -95,8 +97,10 @@ import Blob from "../components/blob.astro";
 		border-radius: calc(infinity * 1px);
 		margin-block-end: 1rem;
 		transition: transform 250ms ease-out;
-
+		
 		@media (width >= 48rem) {
+			margin-block-start: auto;
+			margin-block-end: initial;
 			align-self: flex-end;
 		}
 
@@ -108,6 +112,13 @@ import Blob from "../components/blob.astro";
 	.name { grid-area: name; }
 	.tagline { grid-area: tagline; }
 	.avatar { grid-area: avatar; }
-	.data { grid-area: data; }
+	
+	.data { 
+		grid-area: data; 
+		display: flex;
+		flex-direction: column;
+		row-gap: 2rem;
+		margin-block-start: auto;
+	}
 
 </style>
