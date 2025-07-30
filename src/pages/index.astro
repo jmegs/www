@@ -28,10 +28,8 @@ import Blob from "../components/blob.astro";
 			)
 		}
 	</head>
-	<body class="antialiased font-sans tracking-[-0.01em]">
-		<main
-			class="min-h-svh p-6 md:px-12 grid grid-rows-[auto_auto_auto_1fr] md:grid-rows-2 md:grid-cols-2 gap-y-1"
-		>
+	<body>
+		<main>
 			<Image
 				priority={true}
 				src={avatarImage}
@@ -39,11 +37,11 @@ import Blob from "../components/blob.astro";
 				widths={[64, 128]}
 				loading="eager"
 				sizes="(max-width: 48rem) 56px, 64px"
-				class="size-14 md:size-16 object-cover rounded-full md:self-end mb-4 hover:rotate-3 transition-transform ease-spring duration-830"
+				class="avatar"
 			/>
-			<h1 class="md:col-start-1 md:row-start-1 w-fit">John Meguerian</h1>
-			<p class="md:col-start-2 md:row-start-1 w-fit">Design Manager</p>
-			<div class="space-y-4 self-end mb-4 w-fit">
+			<h1 class="name">John Meguerian</h1>
+			<p class="tagline">Design Manager</p>
+			<div class="data">
 				<p>
 					johnmeguerian <br />
 					[at] gmail.com
@@ -62,7 +60,54 @@ import Blob from "../components/blob.astro";
 
 <style>
 	body {
+		-webkit-font-smoothing: antialiased;
 		background-color: var(--color-surface);
 		color: var(--color-tx);
+		font-family: var(--font-degular-variable);
+		letter-spacing: -0.01em;
 	}
+
+	main {
+		min-height: 100svh;
+		padding: 5vmin;
+		display: grid;
+		grid-template-rows: auto auto auto 1fr;
+		row-gap: 0.25rem;
+		grid-template-areas: 
+		"avatar"
+		"name"
+		"tagline"
+		"data";
+
+		@media( width >= 48rem) {
+			grid-template-rows: repeat(2, minmax(0, 1fr));
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			grid-template-areas:
+				"name tagline"
+				"avatar data";
+		}
+	}
+
+	.avatar {
+		block-size: 4rem;
+		inline-size: 4rem;
+		object-fit: cover;
+		border-radius: calc(infinity * 1px);
+		margin-block-end: 1rem;
+		transition: transform 250ms ease-out;
+
+		@media (width >= 48rem) {
+			align-self: flex-end;
+		}
+
+		&:hover {
+			transform: rotate(3deg) scale(0.99);
+		}
+	}
+
+	.name { grid-area: name; }
+	.tagline { grid-area: tagline; }
+	.avatar { grid-area: avatar; }
+	.data { grid-area: data; }
+
 </style>
