@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+	--font-mono: "TX-02", ui-monospace, monospace;
+}
+
+body {
+	color: var(--color-stone-300);
+	background-color: var(--color-stone-900);
+}
+
+::selection {
+	background-color: var(--color-stone-300);
+	color: var(--color-stone-900);
+}
