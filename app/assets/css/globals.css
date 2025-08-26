@@ -5,8 +5,8 @@
 }
 
 body {
-	color: #e5e9f0;
-	background-color: #101010;
+	color: var(--color-stone-300);
+	background-color: var(--color-stone-900);
 }
 
 ::selection {

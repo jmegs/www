@@ -67,22 +67,22 @@
 	--spin-speed: 5500ms;
 	--blur: 45px;
 
-	--red: #bf616a;
-	--magenta: #b48ead;
-	--orange: #d08770;
-	--yellow: #ebcb8b;
+	--flexoki-red: #d14d41;
+	--flexoki-magenta: #ce5d97;
+	--flexoki-orange: #da702c;
+	--flexoki-yellow: #d0a215;
 
 	/* Gradient colors using warm Flexoki accent colors */
-	--gradient-1: var(--yellow);
-	--gradient-2: var(--orange);
-	--gradient-3: var(--red);
-	--gradient-4: var(--magenta);
-	--gradient-5: var(--orange);
-	--inner-glow-1: rgb(from#3b4252 r g b / 0.4);
-	--inner-glow-2: rgb(from #4c566a r g b / 0);
-	--gradient2-1: var(--red);
-	--gradient2-2: var(--magenta);
-	--gradient2-3: var(--yellow);
+	--gradient-1: var(--flexoki-yellow);
+	--gradient-2: var(--flexoki-orange);
+	--gradient-3: var(--flexoki-red);
+	--gradient-4: var(--flexoki-magenta);
+	--gradient-5: var(--flexoki-orange);
+	--inner-glow-1: rgba(255, 248, 220, 0.4);
+	--inner-glow-2: rgba(255, 248, 220, 0);
+	--gradient2-1: var(--flexoki-red);
+	--gradient2-2: var(--flexoki-magenta);
+	--gradient2-3: var(--flexoki-yellow);
 
 	position: fixed;
 	height: 100vh;
