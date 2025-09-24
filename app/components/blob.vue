@@ -1,39 +1,35 @@
 <template>
 	<div class="blob">
-		<div class="x">
-			<div class="y">
-				<div class="spin">
-					<svg class="shape" viewBox="0 0 100 100" fill="none">
-						<defs>
-							<linearGradient id="gradient">
-								<stop offset="27%" class="linear-stop-1"></stop>
-								<stop offset="43%" class="linear-stop-2"></stop>
-								<stop offset="53%" class="linear-stop-3"></stop>
-								<stop offset="67%" class="linear-stop-4"></stop>
-								<stop offset="100%" class="linear-stop-5"></stop>
-							</linearGradient>
-							<radialGradient id="inner-glow">
-								<stop offset="0%" class="radial-stop-1"></stop>
-								<stop offset="100%" class="radial-stop-2"></stop>
-							</radialGradient>
-						</defs>
-						<ellipse rx="45" ry="45" cx="50" cy="50" fill="url('#gradient')" stroke="none"></ellipse>
-						<ellipse rx="35" ry="35" cx="50" cy="50" fill="url('#inner-glow')" stroke="none"></ellipse>
-					</svg>
-				</div>
-				<div class="spin reverse">
-					<svg class="shape" viewBox="0 0 100 100" fill="none">
-						<defs>
-							<linearGradient id="gradient2">
-								<stop offset="0%" class="reverse-stop-1"></stop>
-								<stop offset="50%" class="reverse-stop-2"></stop>
-								<stop offset="100%" class="reverse-stop-3"></stop>
-							</linearGradient>
-						</defs>
-						<ellipse rx="30" ry="30" cx="50" cy="50" fill="url('#gradient2')" stroke="none"></ellipse>
-					</svg>
-				</div>
-			</div>
+		<div class="spin">
+			<svg class="shape" viewBox="0 0 100 100" fill="none">
+				<defs>
+					<linearGradient id="gradient">
+						<stop offset="27%" class="linear-stop-1"></stop>
+						<stop offset="43%" class="linear-stop-2"></stop>
+						<stop offset="53%" class="linear-stop-3"></stop>
+						<stop offset="67%" class="linear-stop-4"></stop>
+						<stop offset="100%" class="linear-stop-5"></stop>
+					</linearGradient>
+					<radialGradient id="inner-glow">
+						<stop offset="0%" class="radial-stop-1"></stop>
+						<stop offset="100%" class="radial-stop-2"></stop>
+					</radialGradient>
+				</defs>
+				<ellipse rx="45" ry="45" cx="50" cy="50" fill="url('#gradient')" stroke="none"></ellipse>
+				<ellipse rx="35" ry="35" cx="50" cy="50" fill="url('#inner-glow')" stroke="none"></ellipse>
+			</svg>
+		</div>
+		<div class="spin reverse">
+			<svg class="shape" viewBox="0 0 100 100" fill="none">
+				<defs>
+					<linearGradient id="gradient2">
+						<stop offset="0%" class="reverse-stop-1"></stop>
+						<stop offset="50%" class="reverse-stop-2"></stop>
+						<stop offset="100%" class="reverse-stop-3"></stop>
+					</linearGradient>
+				</defs>
+				<ellipse rx="30" ry="30" cx="50" cy="50" fill="url('#gradient2')" stroke="none"></ellipse>
+			</svg>
 		</div>
 	</div>
 </template>
@@ -86,29 +82,7 @@
 	}
 }
 
-.x {
-	width: var(--blob-size);
-	height: 100%;
-	animation: x var(--x-speed) linear infinite;
-	transform-origin: center center;
-	will-change: transform;
-	background: none;
-
-}
-
-.y {
-	animation: y var(--y-speed) linear infinite;
-	height: var(--blob-size);
-	width: 100%;
-	position: relative;
-	will-change: transform;
-	background: none;
-	transform-origin: center center;
-
-}
-
 .spin {
-	position: absolute;
 	animation:
 		spin var(--spin-speed) linear infinite,
 		pulse calc(var(--spin-speed) * 1.5) linear infinite alternate;
@@ -120,11 +94,11 @@
 	background: none;
 	overflow: visible;
 	opacity: var(--blob-opacity);
+	grid-area: 1/1;
 
 }
 
 .spin.reverse {
-	position: absolute;
 	height: var(--blob-size);
 	width: var(--blob-size);
 	animation:
@@ -182,38 +156,6 @@
 	stop-color: var(--gradient2-3);
 }
 
-@keyframes x {
-
-	0%,
-	100% {
-		translate: 0 0 0;
-	}
-
-	25% {
-		translate: calc(50vw - (var(--blob-size) / 2) + var(--blob-overscroll-x)) 0 0;
-	}
-
-	75% {
-		translate: calc(-50vw + (var(--blob-size) / 2) - var(--blob-overscroll-x)) 0 0;
-	}
-}
-
-@keyframes y {
-
-	0%,
-	100% {
-		translate: 0 0 0;
-	}
-
-	25% {
-		translate: 0 calc(50vh - (var(--blob-size) / 2) + var(--blob-overscroll-y)) 0;
-	}
-
-	75% {
-		translate: 0 calc(-50vh + (var(--blob-size) / 2) - var(--blob-overscroll-y)) 0;
-	}
-}
-
 @keyframes spin {
 	from {
 		rotate: 0;
@@ -231,8 +173,12 @@
 		scale: 1;
 	}
 
-	50% {
-		scale: 1.1;
+	25% {
+		scale: 1.2;
+	}
+
+	75% {
+		scale: 0.8;
 	}
 }
 </style>

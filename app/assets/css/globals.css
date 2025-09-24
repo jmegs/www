@@ -1,13 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-	--font-serif: "PP Mondwest", serif;
-	--font-mono: "TX-02", ui-monospace, monospace;
+	--font-sans: "VC Nudge", Arial, sans-serif;
 }
 
 body {
-	color: var(--color-stone-900);
-	background-color: var(--color-stone-100);
+	color: var(--color-stone-800);
+	background-color: var(--color-stone-50);
 
 	@media (prefers-color-scheme: dark) {
 		color: var(--color-stone-300);

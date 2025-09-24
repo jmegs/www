@@ -8,6 +8,7 @@ export default defineNuxtConfig({
 
 	features: {
 		noScripts: true,
+		inlineStyles: true,
 	},
 
 	scripts: {
@@ -21,6 +22,9 @@ export default defineNuxtConfig({
 	app: {
 		head: {
 			title: "John Meguerian",
+			htmlAttrs: {
+				lang: "en",
+			},
 			meta: [
 				{
 					name: "description",
