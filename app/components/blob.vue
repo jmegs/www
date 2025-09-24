@@ -45,7 +45,7 @@
 	--spin-speed: 30s;
 	--blur: 30px;
 
-	--gradient-1: #180614;
+	--gradient-1: #0A081B;
 	--gradient-2: #2b2137;
 	--gradient-3: #4f455c;
 	--gradient-4: #c099a0;
@@ -56,7 +56,7 @@
 
 	--gradient2-1: var(--gradient-3);
 	--gradient2-2: var(--gradient-4);
-	--gradient2-3: var(--gradient-1);
+	--gradient2-3: var(--gradient-5);
 
 	@media (prefers-color-scheme: dark) {
 		--blob-opacity: 40%;
@@ -174,11 +174,11 @@
 	}
 
 	25% {
-		scale: 1.2;
+		scale: 1.25;
 	}
 
 	75% {
-		scale: 0.8;
+		scale: 0.9;
 	}
 }
 </style>
