@@ -6,10 +6,10 @@
 					<svg class="shape" viewBox="0 0 100 100" fill="none">
 						<defs>
 							<linearGradient id="gradient">
-								<stop offset="0%" class="linear-stop-1"></stop>
-								<stop offset="25%" class="linear-stop-2"></stop>
-								<stop offset="50%" class="linear-stop-3"></stop>
-								<stop offset="75%" class="linear-stop-4"></stop>
+								<stop offset="27%" class="linear-stop-1"></stop>
+								<stop offset="43%" class="linear-stop-2"></stop>
+								<stop offset="53%" class="linear-stop-3"></stop>
+								<stop offset="67%" class="linear-stop-4"></stop>
 								<stop offset="100%" class="linear-stop-5"></stop>
 							</linearGradient>
 							<radialGradient id="inner-glow">
@@ -41,27 +41,30 @@
 <style scoped>
 .blob {
 	--blob-size: 40vmax;
+	--blob-opacity: 80%;
+	--blob-overscroll-x: 20%;
+	--blob-overscroll-y: 20%;
 	--x-speed: 25000ms;
 	--y-speed: 30000ms;
-	--spin-speed: 5500ms;
-	--blur: 45px;
+	--spin-speed: 30s;
+	--blur: 30px;
 
-	--flexoki-red: #d14d41;
-	--flexoki-magenta: #ce5d97;
-	--flexoki-orange: #da702c;
-	--flexoki-yellow: #d0a215;
+	--gradient-1: #180614;
+	--gradient-2: #2b2137;
+	--gradient-3: #4f455c;
+	--gradient-4: #c099a0;
+	--gradient-5: #e4d2d8;
 
-	/* Gradient colors using warm Flexoki accent colors */
-	--gradient-1: var(--flexoki-yellow);
-	--gradient-2: var(--flexoki-orange);
-	--gradient-3: var(--flexoki-red);
-	--gradient-4: var(--flexoki-magenta);
-	--gradient-5: var(--flexoki-orange);
 	--inner-glow-1: rgba(255, 248, 220, 0.4);
 	--inner-glow-2: rgba(255, 248, 220, 0);
-	--gradient2-1: var(--flexoki-red);
-	--gradient2-2: var(--flexoki-magenta);
-	--gradient2-3: var(--flexoki-yellow);
+
+	--gradient2-1: var(--gradient-3);
+	--gradient2-2: var(--gradient-4);
+	--gradient2-3: var(--gradient-1);
+
+	@media (prefers-color-scheme: dark) {
+		--blob-opacity: 40%;
+	}
 
 	position: fixed;
 	height: 100vh;
@@ -74,6 +77,7 @@
 	overflow: hidden;
 	will-change: transform;
 	transform-style: preserve-3d;
+	contain: layout style paint;
 }
 
 @media (max-width: 768px) {
@@ -85,49 +89,51 @@
 .x {
 	width: var(--blob-size);
 	height: 100%;
-	/* animation: x var(--x-speed) linear infinite alternate; */
-	transform-origin: center;
+	animation: x var(--x-speed) linear infinite;
+	transform-origin: center center;
 	will-change: transform;
 	background: none;
+
 }
 
 .y {
-	/* animation: y var(--y-speed) linear infinite alternate; */
+	animation: y var(--y-speed) linear infinite;
 	height: var(--blob-size);
 	width: 100%;
 	position: relative;
 	will-change: transform;
 	background: none;
+	transform-origin: center center;
+
 }
 
 .spin {
 	position: absolute;
-	animation: spin calc(var(--spin-speed) * 2) linear infinite, pulse 10s ease-in-out infinite alternate;
+	animation:
+		spin var(--spin-speed) linear infinite,
+		pulse calc(var(--spin-speed) * 1.5) linear infinite alternate;
 	height: var(--blob-size);
 	width: var(--blob-size);
-	filter: blur(var(--blur)) contrast(1.15) brightness(1.1) saturate(1.2) hue-rotate(5deg);
+	filter: blur(var(--blur)) contrast(1.15) brightness(1.2) saturate(1.2);
 	will-change: transform;
 	transform-style: preserve-3d;
 	background: none;
 	overflow: visible;
-
-	opacity: 24%;
-
-	@media (prefers-color-scheme: dark) {
-		opacity: 12%;
-	}
+	opacity: var(--blob-opacity);
 
 }
 
 .spin.reverse {
-	animation: spin calc(var(--spin-speed) * 1.5) linear infinite reverse;
-	filter: blur(calc(var(--blur) * 0.7)) contrast(1.2) brightness(1.15) saturate(1.3);
-	opacity: 16%;
-
-	@media (prefers-color-scheme: dark) {
-		opacity: 8%;
-	}
-
+	position: absolute;
+	height: var(--blob-size);
+	width: var(--blob-size);
+	animation:
+		calc(var(--spin-speed) * 1.5) linear infinite reverse spin,
+		calc(var(--spin-speed) * 1.5) linear infinite alternate pulse;
+	filter: blur(calc(var(--blur) * 1.2)) contrast(1.2) brightness(1.2) saturate(1.3);
+	opacity: var(--blob-opacity);
+	will-change: transform;
+	transform-style: preserve-3d;
 }
 
 .shape {
@@ -177,32 +183,44 @@
 }
 
 @keyframes x {
-	from {
-		transform: translate3d(0, 0, 0);
+
+	0%,
+	100% {
+		translate: 0 0 0;
 	}
 
-	to {
-		transform: translate3d(calc(100vw - (var(--blob-size) / 2)), 0, 0);
+	25% {
+		translate: calc(50vw - (var(--blob-size) / 2) + var(--blob-overscroll-x)) 0 0;
+	}
+
+	75% {
+		translate: calc(-50vw + (var(--blob-size) / 2) - var(--blob-overscroll-x)) 0 0;
 	}
 }
 
 @keyframes y {
-	from {
-		transform: translate3d(0, 0, 0);
+
+	0%,
+	100% {
+		translate: 0 0 0;
 	}
 
-	to {
-		transform: translate3d(0, calc(100vh - (var(--blob-size) / 2)), 0);
+	25% {
+		translate: 0 calc(50vh - (var(--blob-size) / 2) + var(--blob-overscroll-y)) 0;
+	}
+
+	75% {
+		translate: 0 calc(-50vh + (var(--blob-size) / 2) - var(--blob-overscroll-y)) 0;
 	}
 }
 
 @keyframes spin {
 	from {
-		transform: translate3d(0, 0, 0) rotate(0) scale(1);
+		rotate: 0;
 	}
 
 	to {
-		transform: translate3d(0, 0, 0) rotate(1turn) scale(1.05);
+		rotate: 1turn;
 	}
 }
 
@@ -210,11 +228,11 @@
 
 	0%,
 	100% {
-		transform: scale(1);
+		scale: 1;
 	}
 
 	50% {
-		transform: scale(1.1);
+		scale: 1.1;
 	}
 }
 </style>
