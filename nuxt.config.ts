@@ -6,6 +6,10 @@ export default defineNuxtConfig({
 	modules: ["@nuxt/fonts", "@nuxt/scripts"],
 	css: ["~/assets/css/globals.css"],
 
+	features: {
+		noScripts: true,
+	},
+
 	scripts: {
 		registry: {
 			fathomAnalytics: {
@@ -24,10 +28,6 @@ export default defineNuxtConfig({
 				},
 			],
 		},
-	},
-
-	nitro: {
-		static: true,
 	},
 
 	vite: {
