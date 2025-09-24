@@ -5,8 +5,13 @@
 }
 
 body {
-	color: var(--color-stone-300);
-	background-color: var(--color-stone-900);
+	color: var(--color-stone-900);
+	background-color: var(--color-stone-100);
+
+	@media (prefers-color-scheme: dark) {
+		color: var(--color-stone-300);
+		background-color: var(--color-stone-900);
+	}
 }
 
 ::selection {

@@ -17,22 +17,8 @@
 								<stop offset="100%" class="radial-stop-2"></stop>
 							</radialGradient>
 						</defs>
-						<ellipse
-							rx="45"
-							ry="45"
-							cx="50"
-							cy="50"
-							fill="url('#gradient')"
-							stroke="none"
-						></ellipse>
-						<ellipse
-							rx="35"
-							ry="35"
-							cx="50"
-							cy="50"
-							fill="url('#inner-glow')"
-							stroke="none"
-						></ellipse>
+						<ellipse rx="45" ry="45" cx="50" cy="50" fill="url('#gradient')" stroke="none"></ellipse>
+						<ellipse rx="35" ry="35" cx="50" cy="50" fill="url('#inner-glow')" stroke="none"></ellipse>
 					</svg>
 				</div>
 				<div class="spin reverse">
@@ -44,14 +30,7 @@
 								<stop offset="100%" class="reverse-stop-3"></stop>
 							</linearGradient>
 						</defs>
-						<ellipse
-							rx="30"
-							ry="30"
-							cx="50"
-							cy="50"
-							fill="url('#gradient2')"
-							stroke="none"
-						></ellipse>
+						<ellipse rx="30" ry="30" cx="50" cy="50" fill="url('#gradient2')" stroke="none"></ellipse>
 					</svg>
 				</div>
 			</div>
@@ -61,7 +40,7 @@
 
 <style scoped>
 .blob {
-	--blob-size: 32vmax;
+	--blob-size: 40vmax;
 	--x-speed: 25000ms;
 	--y-speed: 30000ms;
 	--spin-speed: 5500ms;
@@ -90,6 +69,8 @@
 	width: 100vw;
 	inset: 0;
 	z-index: -1;
+	display: grid;
+	place-content: center;
 	overflow: hidden;
 	will-change: transform;
 	transform-style: preserve-3d;
@@ -104,14 +85,14 @@
 .x {
 	width: var(--blob-size);
 	height: 100%;
-	animation: x var(--x-speed) linear infinite alternate;
+	/* animation: x var(--x-speed) linear infinite alternate; */
 	transform-origin: center;
 	will-change: transform;
 	background: none;
 }
 
 .y {
-	animation: y var(--y-speed) linear infinite alternate;
+	/* animation: y var(--y-speed) linear infinite alternate; */
 	height: var(--blob-size);
 	width: 100%;
 	position: relative;
@@ -121,23 +102,32 @@
 
 .spin {
 	position: absolute;
-	animation: spin calc(var(--spin-speed) * 2) linear infinite;
+	animation: spin calc(var(--spin-speed) * 2) linear infinite, pulse 10s ease-in-out infinite alternate;
 	height: var(--blob-size);
 	width: var(--blob-size);
-	filter: blur(var(--blur)) contrast(1.15) brightness(1.1) saturate(1.2)
-		hue-rotate(5deg);
-	opacity: 12%;
+	filter: blur(var(--blur)) contrast(1.15) brightness(1.1) saturate(1.2) hue-rotate(5deg);
 	will-change: transform;
 	transform-style: preserve-3d;
 	background: none;
 	overflow: visible;
+
+	opacity: 24%;
+
+	@media (prefers-color-scheme: dark) {
+		opacity: 12%;
+	}
+
 }
 
 .spin.reverse {
 	animation: spin calc(var(--spin-speed) * 1.5) linear infinite reverse;
-	opacity: 8%;
-	filter: blur(calc(var(--blur) * 0.7)) contrast(1.2) brightness(1.15)
-		saturate(1.3);
+	filter: blur(calc(var(--blur) * 0.7)) contrast(1.2) brightness(1.15) saturate(1.3);
+	opacity: 16%;
+
+	@media (prefers-color-scheme: dark) {
+		opacity: 8%;
+	}
+
 }
 
 .shape {
@@ -149,30 +139,39 @@
 .linear-stop-1 {
 	stop-color: var(--gradient-1);
 }
+
 .linear-stop-2 {
 	stop-color: var(--gradient-2);
 }
+
 .linear-stop-3 {
 	stop-color: var(--gradient-3);
 }
+
 .linear-stop-4 {
 	stop-color: var(--gradient-4);
 }
+
 .linear-stop-5 {
 	stop-color: var(--gradient-5);
 }
+
 .radial-stop-1 {
 	stop-color: var(--inner-glow-1);
 }
+
 .radial-stop-2 {
 	stop-color: var(--inner-glow-2);
 }
+
 .reverse-stop-1 {
 	stop-color: var(--gradient2-1);
 }
+
 .reverse-stop-2 {
 	stop-color: var(--gradient2-2);
 }
+
 .reverse-stop-3 {
 	stop-color: var(--gradient2-3);
 }
@@ -181,6 +180,7 @@
 	from {
 		transform: translate3d(0, 0, 0);
 	}
+
 	to {
 		transform: translate3d(calc(100vw - (var(--blob-size) / 2)), 0, 0);
 	}
@@ -190,6 +190,7 @@
 	from {
 		transform: translate3d(0, 0, 0);
 	}
+
 	to {
 		transform: translate3d(0, calc(100vh - (var(--blob-size) / 2)), 0);
 	}
@@ -199,18 +200,21 @@
 	from {
 		transform: translate3d(0, 0, 0) rotate(0) scale(1);
 	}
+
 	to {
 		transform: translate3d(0, 0, 0) rotate(1turn) scale(1.05);
 	}
 }
 
 @keyframes pulse {
+
 	0%,
 	100% {
 		transform: scale(1);
 	}
+
 	50% {
-		transform: scale(1.05);
+		transform: scale(1.1);
 	}
 }
 </style>
