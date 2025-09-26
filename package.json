@@ -1,23 +1,24 @@
 {
-	"name": "nuxt-app",
+	"name": "johnmeguerian.com",
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"build": "nuxt build",
-		"dev": "nuxt dev",
-		"generate": "nuxt generate",
-		"preview": "nuxt preview",
-		"postinstall": "nuxt prepare"
+		"dev": "next dev --turbopack",
+		"build": "next build --turbopack",
+		"start": "next start"
 	},
 	"dependencies": {
-		"@nuxt/fonts": "0.11.4",
-		"@nuxt/scripts": "0.11.10",
-		"@tailwindcss/vite": "^4.1.11",
-		"@unhead/vue": "^2.0.3",
-		"nuxt": "^4.0.3",
-		"tailwindcss": "^4.1.11",
-		"vue": "^3.5.18",
-		"vue-router": "^4.5.1"
+		"fathom-client": "^3.7.2",
+		"next": "^15.6.0-canary.30",
+		"react": "^19.1.1",
+		"react-dom": "^19.1.1"
 	},
-	"packageManager": "pnpm@10.17.1+sha512.17c560fca4867ae9473a3899ad84a88334914f379be46d455cbf92e5cf4b39d34985d452d2583baf19967fa76cb5c17bc9e245529d0b98745721aa7200ecaf7a"
+	"devDependencies": {
+		"@tailwindcss/postcss": "^4",
+		"@types/node": "^22",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+		"tailwindcss": "^4.1.11",
+		"typescript": "^5"
+	}
 }

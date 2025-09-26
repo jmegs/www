@@ -1,42 +1,5 @@
-<template>
-	<div class="blob">
-		<div class="spin">
-			<svg class="shape" viewBox="0 0 100 100" fill="none">
-				<defs>
-					<linearGradient id="gradient">
-						<stop offset="27%" class="linear-stop-1"></stop>
-						<stop offset="43%" class="linear-stop-2"></stop>
-						<stop offset="53%" class="linear-stop-3"></stop>
-						<stop offset="67%" class="linear-stop-4"></stop>
-						<stop offset="100%" class="linear-stop-5"></stop>
-					</linearGradient>
-					<radialGradient id="inner-glow">
-						<stop offset="0%" class="radial-stop-1"></stop>
-						<stop offset="100%" class="radial-stop-2"></stop>
-					</radialGradient>
-				</defs>
-				<ellipse rx="45" ry="45" cx="50" cy="50" fill="url('#gradient')" stroke="none"></ellipse>
-				<ellipse rx="35" ry="35" cx="50" cy="50" fill="url('#inner-glow')" stroke="none"></ellipse>
-			</svg>
-		</div>
-		<div class="spin reverse">
-			<svg class="shape" viewBox="0 0 100 100" fill="none">
-				<defs>
-					<linearGradient id="gradient2">
-						<stop offset="0%" class="reverse-stop-1"></stop>
-						<stop offset="50%" class="reverse-stop-2"></stop>
-						<stop offset="100%" class="reverse-stop-3"></stop>
-					</linearGradient>
-				</defs>
-				<ellipse rx="30" ry="30" cx="50" cy="50" fill="url('#gradient2')" stroke="none"></ellipse>
-			</svg>
-		</div>
-	</div>
-</template>
-
-<style scoped>
 .blob {
-	--blob-size: 40vmax;
+	--blob-size: 42vmax;
 	--blob-opacity: 80%;
 	--blob-overscroll-x: 20%;
 	--blob-overscroll-y: 20%;
@@ -76,9 +39,10 @@
 	contain: layout style paint;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
 	.blob {
 		--blur: 35px;
+		place-content: end center
 	}
 }
 
@@ -98,7 +62,7 @@
 
 }
 
-.spin.reverse {
+.spin:global(.reverse) {
 	height: var(--blob-size);
 	width: var(--blob-size);
 	animation:
@@ -116,43 +80,43 @@
 }
 
 /* Apply gradient colors via CSS custom properties */
-.linear-stop-1 {
+.linearStop1 {
 	stop-color: var(--gradient-1);
 }
 
-.linear-stop-2 {
+.linearStop2 {
 	stop-color: var(--gradient-2);
 }
 
-.linear-stop-3 {
+.linearStop3 {
 	stop-color: var(--gradient-3);
 }
 
-.linear-stop-4 {
+.linearStop4 {
 	stop-color: var(--gradient-4);
 }
 
-.linear-stop-5 {
+.linearStop5 {
 	stop-color: var(--gradient-5);
 }
 
-.radial-stop-1 {
+.radialStop1 {
 	stop-color: var(--inner-glow-1);
 }
 
-.radial-stop-2 {
+.radialStop2 {
 	stop-color: var(--inner-glow-2);
 }
 
-.reverse-stop-1 {
+.reverseStop1 {
 	stop-color: var(--gradient2-1);
 }
 
-.reverse-stop-2 {
+.reverseStop2 {
 	stop-color: var(--gradient2-2);
 }
 
-.reverse-stop-3 {
+.reverseStop3 {
 	stop-color: var(--gradient2-3);
 }
 
@@ -181,4 +145,3 @@
 		scale: 0.9;
 	}
 }
-</style>

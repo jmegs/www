@@ -1,10 +1,7 @@
 @import "tailwindcss";
 
-@theme {
-	--font-sans: "VC Nudge", Arial, sans-serif;
-}
-
 body {
+  font-family: var(--font-nudge), Arial, sans-serif;
 	color: var(--color-stone-800);
 	background-color: var(--color-stone-50);
 
