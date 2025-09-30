@@ -1,14 +1,8 @@
 "use cache";
 
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import Fathom from "./fathom";
-
-const nudge = localFont({
-	src: "./vc-nudge.woff2",
-	variable: "--font-nudge",
-});
 
 export const metadata: Metadata = {
 	title: "John Meguerian",
@@ -22,7 +16,16 @@ export default async function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${nudge.variable}`}>
+			<head>
+				<link rel="preconnect" href="https://use.typekit.net" />
+				<link
+					rel="preload"
+					as="style"
+					href="https://use.typekit.net/tvi2kjb.css"
+				/>
+				<link rel="stylesheet" href="https://use.typekit.net/tvi2kjb.css" />
+			</head>
+			<body>
 				<Fathom />
 				{children}
 			</body>

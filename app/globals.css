@@ -1,13 +1,15 @@
 @import "tailwindcss";
 
 body {
-  font-family: var(--font-nudge), Arial, sans-serif;
+	font-family: "degular-variable", sans-serif;
+	font-variation-settings: "wght" 420, "opsz" 69, "ital" 0;
 	color: var(--color-stone-800);
 	background-color: var(--color-stone-50);
-
+	
 	@media (prefers-color-scheme: dark) {
 		color: var(--color-stone-300);
 		background-color: var(--color-stone-900);
+		font-variation-settings: "wght" 390, "opsz" 69, "ital" 0;
 	}
 }
 

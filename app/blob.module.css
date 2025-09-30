@@ -37,6 +37,7 @@
 	will-change: transform;
 	transform-style: preserve-3d;
 	contain: layout style paint;
+	background-color: transparent;
 }
 
 @media (max-width: 600px) {
