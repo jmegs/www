@@ -1,6 +1,6 @@
-"use cache";
+"use cache"
 
-import Blob from "./blob";
+import Blob from "./blob"
 
 export default async function Home() {
 	return (
@@ -16,5 +16,5 @@ export default async function Home() {
 			</div>
 			<Blob />
 		</>
-	);
+	)
 }

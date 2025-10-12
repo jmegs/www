@@ -1,10 +1,12 @@
-import styles from "./blob.module.css";
+/** biome-ignore-all lint/correctness/useUniqueElementIds: but they are unique */
+import styles from "./blob.module.css"
 
 export default function Blob() {
 	return (
 		<div className={styles.blob}>
 			<div className={styles.spin}>
 				<svg className={styles.shape} viewBox="0 0 100 100" fill="none">
+					<title>Rotating blob</title>
 					<defs>
 						<linearGradient id="gradient">
 							<stop offset="27%" className={styles.linearStop1}></stop>
@@ -36,8 +38,9 @@ export default function Blob() {
 					></ellipse>
 				</svg>
 			</div>
-			<div className={styles.spin + " " + "reverse"}>
+			<div className={`${styles.spin} reverse`}>
 				<svg className={styles.shape} viewBox="0 0 100 100" fill="none">
+					<title>Another blob</title>
 					<defs>
 						<linearGradient id="gradient2">
 							<stop offset="0%" className={styles.reverseStop1}></stop>
@@ -56,5 +59,5 @@ export default function Blob() {
 				</svg>
 			</div>
 		</div>
-	);
+	)
 }
