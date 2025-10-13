@@ -9,5 +9,7 @@
     "astro": "^5.14.4",
     "astro-fathom": "^2.0.0",
     "tailwindcss": "^4.1.14"
-  }
+  },
+  "packageManager": "pnpm@10.18.2"
+
 }
