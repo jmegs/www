@@ -1,0 +1,33 @@
+---
+import "../styles/global.css";
+import Blob from "../components/blob.astro";
+import {Fathom} from "astro-fathom";
+---
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>John Meguerian</title>
+    <meta name="description" content="Product design manager based in NYC" />
+    <link rel="preconnect" href="https://use.typekit.net" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://use.typekit.net/tvi2kjb.css"
+    />
+    <link rel="stylesheet" href="https://use.typekit.net/tvi2kjb.css">
+    <Fathom site="TVQPDWBA" />
+  </head>
+  <body>
+    <div class="h-svh font-obviously text-3xl leading-tight tracking-tight">
+      <div class="p-10">
+        <h1>John Meguerian</h1>
+        <p>Design Manager</p>
+        <br
+        <p>&copy; 2025</p>
+      </div>
+    </div>
+    <Blob />
+  </body>
+</html>

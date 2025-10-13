@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --font-obviously: "obviously-narrow", var(--font-sans);
+}
+
+body {
+  color: var(--color-stone-800);
+  background-color: var(--color-stone-50);
+
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-stone-300);
+    background-color: var(--color-stone-900);
+  }
+}
