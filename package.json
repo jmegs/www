@@ -1,15 +1,28 @@
 {
-  "scripts": {
-    "dev": "astro dev --port 3000",
-    "build": "astro build",
-    "preview": "astro preview"
-  },
-  "dependencies": {
-    "@tailwindcss/vite": "^4.1.14",
-    "astro": "^5.14.4",
-    "astro-fathom": "^2.0.0",
-    "tailwindcss": "^4.1.14"
-  },
-  "packageManager": "pnpm@10.18.2"
-
+	"name": "johnmeguerian.com",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"dev": "nuxt dev",
+		"build": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare",
+		"predeploy": "nuxt build",
+		"deploy": "wrangler deploy"
+	},
+	"dependencies": {
+		"@nuxt/fonts": "0.11.4",
+		"@nuxt/scripts": "0.13.0",
+		"@unhead/vue": "^2.0.19",
+		"nuxt": "^4.2.0",
+		"vue": "^3.5.22",
+		"vue-router": "^4.6.3"
+	},
+	"devDependencies": {
+		"@tailwindcss/vite": "^4.1.14",
+		"nitro-cloudflare-dev": "^0.2.2",
+		"tailwindcss": "^4.1.14",
+		"wrangler": "^4.45.0"
+	},
+	"packageManager": "pnpm@10.18.2"
 }

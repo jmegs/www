@@ -1,3 +1,4 @@
+<template>
 <div class="blob">
   <div class="spin">
     <svg class="shape" viewBox="0 0 100 100" fill="none">
@@ -57,8 +58,9 @@
     </svg>
   </div>
 </div>
+</template>
 
-<style>
+<style scoped>
 .blob {
   --blob-size: 42vmax;
   --blob-opacity: 80%;
@@ -103,6 +105,10 @@
   .blob {
     --blur: 35px;
     place-content: end center;
+  }
+  
+  .blob > * {
+    translate: 0 40%;
   }
 }
 
