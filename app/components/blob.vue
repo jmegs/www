@@ -62,14 +62,14 @@
 
 <style scoped>
 .blob {
-  --blob-size: 42vmax;
+  --blob-size: 75vmax;
   --blob-opacity: 80%;
   --blob-overscroll-x: 20%;
   --blob-overscroll-y: 20%;
   --x-speed: 25000ms;
   --y-speed: 30000ms;
   --spin-speed: 30s;
-  --blur: 30px;
+  --blur: 50px;
 
   --gradient-1: #0a081b;
   --gradient-2: #2b2137;
@@ -99,6 +99,10 @@
   will-change: transform;
   transform-style: preserve-3d;
   contain: layout style paint;
+
+  & > * {
+    translate: 50% 35%;
+  }
 }
 
 @media (max-width: 600px) {
