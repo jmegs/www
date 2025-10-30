@@ -18,17 +18,7 @@ export default defineNuxtConfig({
 			},
 		},
 	},
-	$production: {
-		scripts: {
-			registry: {
-				cloudflareWebAnalytics: {
-					token: "4cce01c48998471ebb73361dba2fcb62",
-				},
-			},
-		},
-	},
 	vite: {
 		plugins: [tailwindcss()],
 	},
 });
-
