@@ -18,6 +18,15 @@ export default defineNuxtConfig({
 			},
 		},
 	},
+	$production: {
+		scripts: {
+			registry: {
+				fathomAnalytics: {
+					site: "TVQPDWBA",
+				},
+			},
+		},
+	},
 	vite: {
 		plugins: [tailwindcss()],
 	},
