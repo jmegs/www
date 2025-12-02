@@ -3,26 +3,41 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"dev": "nuxt dev",
-		"build": "nuxt build",
-		"preview": "nuxt preview",
-		"postinstall": "nuxt prepare",
-		"predeploy": "nuxt build",
-		"deploy": "wrangler deploy"
+		"build": "vite build",
+		"dev": "vite dev",
+		"dev:init": "rw-scripts dev-init",
+		"preview": "vite preview",
+		"worker:run": "rw-scripts worker-run",
+		"clean": "pnpm run clean:vite",
+		"clean:vite": "rm -rf ./node_modules/.vite",
+		"deploy": "rw-scripts ensure-deploy-env && pnpm run clean && pnpm run build && wrangler deploy",
+		"generate": "rw-scripts ensure-env && wrangler types --include-runtime false"
 	},
 	"dependencies": {
-		"@nuxt/fonts": "0.11.4",
-		"@nuxt/scripts": "0.13.0",
-		"@unhead/vue": "^2.0.19",
-		"nuxt": "^4.2.0",
-		"vue": "^3.5.22",
-		"vue-router": "^4.6.3"
+		"@tailwindcss/vite": "^4.1.17",
+		"react": "19.3.0-canary-fb2177c1-20251114",
+		"react-dom": "19.3.0-canary-fb2177c1-20251114",
+		"react-server-dom-webpack": "19.3.0-canary-fb2177c1-20251114",
+		"rwsdk": "1.0.0-beta.33"
 	},
 	"devDependencies": {
-		"@tailwindcss/vite": "^4.1.14",
-		"nitro-cloudflare-dev": "^0.2.2",
-		"tailwindcss": "^4.1.14",
-		"wrangler": "^4.45.0"
+		"@cloudflare/vite-plugin": "1.15.2",
+		"@cloudflare/workers-types": "4.20251121.0",
+		"@types/node": "~24.5.2",
+		"@types/react": "19.1.2",
+		"@types/react-dom": "19.1.2",
+		"oxfmt": "^0.15.0",
+		"tailwindcss": "^4.1.17",
+		"typescript": "5.8.3",
+		"vite": "7.2.4",
+		"wrangler": "4.50.0"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"esbuild",
+			"sharp",
+			"workerd"
+		]
 	},
 	"packageManager": "pnpm@10.18.2"
 }
